@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Blananas2</title>
+  </head>
+  <style>
+    p {
+      color: yellow;
+    }
+
+    body {
+      background-color: #242424;
+      font-family: 'Px437 IBM VGA 8x16', Courier, monospace;
+      font-size: 64px;
+    }
+
+    input {
+      color: black;
+      font-family: 'Px437 IBM VGA 8x16', Courier, monospace;
+      display: block;
+      margin : 0 auto;
+      width: 1440px;
+      height: 64px;
+      font-size: 64px;
+      text-align: center;
+    }
+
+    select {
+      color: black;
+      font-family: 'Px437 IBM VGA 8x16', Courier, monospace;
+      display: block;
+      margin: 0 auto;
+      margin-top: 16px;
+      font-size: 32px;
+      text-align: center;
+    }
+
+    button {
+      color: black;
+      font-family: 'Px437 IBM VGA 8x16', Courier, monospace;
+      display: block;
+      margin: 0 auto;
+      margin-top: 16px;
+      font-size: 64px;
+    }
+
+  </style>
+  <body id="bod">
+    <p style="font-size: 48px; text-align: center;">Wordlist Checker</p>
+
+    <div>
+      <input type="text" id="word">
+      <select name="modList" id="mod">
+        <option disabled selected value>Choose module...</option>
+      </select>
+      <button onclick="check()">Check</button>
+      <p style="text-align: center;" id="result"></p>
+    </div>
+  </body>
+  <script src='js/wordlists.js'></script>
+  <script>
+    var select = document.getElementById('mod');
+    var all = document.getElementById('bod');
+
+    for (var m = 0; m < ModuleList.length; m++){
+      var opt = document.createElement('option');
+      opt.value = ModuleList[m];
+      opt.innerHTML = ModuleList[m];
+      select.appendChild(opt);
+    }
+
+    bod.addEventListener("keydown", (event) => {
+      if (event.isComposing || event.keyCode === 13) {
+        check();
+      }
+    });
+
+    function check() {
+      var word = document.getElementById('word').value.toLowerCase();
+      var mod = document.getElementById('mod').value;
+      var list = NameToVar(mod);
+      var result = document.getElementById('result');
+      
+      if (list == null) {
+        result.innerHTML = "ERROR, contact Blan.";
+        result.style.color = "maroon";
+        return;
+      }
+      if (list[0].includes(word)) {
+        result.innerHTML = "\"" + word.toUpperCase() + "\" is in the word list for " + mod;
+        result.style.color = "green";
+      } else if (list[1].includes(word)) {
+        if (list == ColoredCiphers || mod == "Cipher Machine" || mod == "Metapuzzle" || mod == "Shape Cipher" || mod == "Ultimate Cipher") {
+          result.innerHTML = "\"" + word.toUpperCase() + "\" is within the code for " + mod + ", but cannot be the answer";
+        } else if (mod == "Word Scramble") {
+          result.innerHTML = "\"" + word.toUpperCase() + "\" is only in the word list for " + mod + " if you have Module Tweaks enabled";
+        } else if (mod == "Wordle") {
+          result.innerHTML = "\"" + word.toUpperCase() + "\" is a valid guess for " + mod + ", but not a valid answer";
+        } else {
+          result.innerHTML = "\"" + word.toUpperCase() + "\" is in the ruleseeded word list for " + mod;
+        }
+        result.style.color = "blue";
+      } else {
+        result.innerHTML = "\"" + word.toUpperCase() + "\" is not in the word list for " + mod;
+        result.style.color = "red";
+        if (result.innerHTML == "\"") {
+          result.innerHTML = "☻";
+        }
+      }
+    }
+  </script>
+</html>
