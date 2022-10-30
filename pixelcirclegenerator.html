@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Pixel Circle Generator</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: 'Px437 IBM VGA 8x16';
+      src: url(font/Px437_IBM_VGA_8x16.ttf);
+    }
+
+    * {
+      font-family: 'Px437 IBM VGA 8x16', Courier, monospace;
+      font-size: 48px; 
+      text-align: center;
+    }
+
+    p {
+      color: yellow;
+    }
+
+    body {
+      background-color: #242424;
+      font-size: 64px;
+    }
+
+    input {
+      color: black;
+      display: block;
+      margin : 0 auto;
+      width: 720px;
+      height: 32px;
+      font-size: 32px;
+      text-align: center;
+    }
+
+    button {
+      color: black;
+      display: block;
+      margin: 0 auto;
+      margin-top: 16px;
+      font-size: 32px;
+    }
+
+  </style>
+  <body id="bod">
+    <p>Pixel Circle Generator</p>
+    
+    <input type="number" id="input">
+    <button onclick="generate()">Generate</button>
+
+    <p id="result" style="padding: 0; line-height: 48px;"></div>
+    
+  </body>
+  <script>
+    bod.addEventListener("keydown", (event) => {
+      if (event.isComposing || event.keyCode === 13) {
+        generate();
+      }
+    });
+
+    function generate () {
+      var input = document.getElementById('input').value;
+      input = parseFloat(input);
+      calcSector(input);
+    }
+
+    function calcSector (diameter) {
+      var radius = Math.floor(diameter / 2);
+
+      if (radius * radius >= Number.MAX_SAFE_INTEGER || !Number.isInteger(diameter) || diameter < 1) {
+        return;
+      }
+      var radiusSquared = Math.pow(radius, 2);
+      
+      var pixX = [(diameter+1)%2];
+      var pixY = [radius];
+
+      while (pixY[pixY.length - 1] > pixX[pixX.length - 1]) {
+        var adjacent = Math.abs(radiusSquared - (Math.pow(pixX[pixX.length - 1] + 1, 2) + Math.pow(pixY[pixY.length - 1], 2)));
+        var diagonal = Math.abs(radiusSquared - (Math.pow(pixX[pixX.length - 1] + 1, 2) + Math.pow(pixY[pixY.length - 1] - 1, 2)));
+        if (adjacent <= diagonal) {
+          pixX.push(pixX[pixX.length - 1] + 1);
+          pixY.push(pixY[pixY.length - 1]);
+        } else {
+          pixX.push(pixX[pixX.length - 1] + 1);
+          pixY.push(pixY[pixY.length - 1] - 1);
+        }
+      }
+
+      var jaggieFlag = [8, 9, 22, 23];
+      if (jaggieFlag.includes(diameter)) {
+        pixX.pop(); pixY.pop();
+      }
+
+      drawTable(diameter, pixX, pixY);
+    }
+
+    function drawTable (diameter, xCoords, yCoords) {
+      var tableText = "";
+
+      for (var p = 0; p < Math.pow(diameter, 2); p++) {
+        var validPixel = false;
+        var row = Math.floor(p/diameter) - Math.ceil(diameter/2) + 1; var col = p%diameter - Math.ceil(diameter/2) + 1;
+        
+        for (var c = 0; c < xCoords.length; c++) {
+          if (
+              (diameter % 2 == 1 && (Math.abs(row) == yCoords[c] && Math.abs(col) == xCoords[c] || Math.abs(col) == yCoords[c] && Math.abs(row) == xCoords[c])) ||
+              (diameter % 2 == 0 && 
+              (row == yCoords[c] && col == xCoords[c] || row == yCoords[c] && col-1 == -xCoords[c] || -row+1 == yCoords[c] && col == xCoords[c] || -row+1 == yCoords[c] && col-1 == -xCoords[c] ||
+               col == yCoords[c] && row == xCoords[c] || col == yCoords[c] && row-1 == -xCoords[c] || -col+1 == yCoords[c] && row == xCoords[c] || -col+1 == yCoords[c] && row-1 == -xCoords[c]))
+          ) {
+            validPixel = true;
+          }
+        }
+
+        if (validPixel) { tableText += "██"; } else { tableText += "░░"; }
+        if (p % diameter == diameter - 1) { tableText += "<br>"; }
+      }
+
+      var result = document.getElementById('result');
+      result.innerHTML = tableText;
+    }
+  
+  </script>
+</html>
