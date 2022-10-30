@@ -51,7 +51,7 @@
     <input type="number" id="input">
     <button onclick="generate()">Generate</button>
 
-    <p id="result" style="padding: 0; line-height: 48px;"></div>
+    <p id="result" style="padding: 0; line-height: 48px;"></p>
     
   </body>
   <script>
@@ -116,7 +116,7 @@
           }
         }
 
-        if (validPixel) { tableText += "██"; } else { tableText += "░░"; }
+        if (validPixel) { tableText += "██"; } else { tableText += "  "; }
         if (p % diameter == diameter - 1) { tableText += "<br>"; }
       }
 
