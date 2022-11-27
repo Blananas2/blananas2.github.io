@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Keyboard Shortcut Viewer</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: 'Px437 IBM VGA 8x16';
+      src: url(font/Px437_IBM_VGA_8x16.ttf);
+    }
+
+    * {
+      font-family: 'Px437 IBM VGA 8x16', Courier, monospace;
+      font-size: 16px; 
+      text-emphasis-color: black;
+      text-align: center;
+    }
+
+    p {
+      color: yellow;
+    }
+
+    body {
+      background-color: #242424;
+      font-size: 64px;
+    }
+
+    button {
+      width: 64px;
+      height: 64px;
+      background-color: black;
+      color: white;
+    }
+
+    div {
+      height: 64px;
+    }
+
+    button.bp { /* bumps a button up by half a key */
+      position:relative; bottom:32px;
+    }
+
+  </style>
+  <body id="bod">
+    <div>
+      <button>Esc</button>
+      <button style="margin-left:44px">F1</button><button>F2</button><button>F3</button><button>F4</button>
+      <button style="margin-left:8px">F5</button><button>F6</button><button>F7</button><button>F8</button>
+      <button style="margin-left:8px">F9</button><button>F10</button><button>F11</button><button>F12</button>
+      <button style="margin-left:44px;">¶ §</button><button>↨ Γ</button><button style="margin-right:264px">║ •</button>
+    </div>
+    <div style="margin-top:16px">
+      <button>~ `</button><button>! 1</button><button>@ 2</button><button># 3</button><button>$ 4</button><button>% 5</button><button>^ 6</button><button>&amp; 7</button><button>* 8</button><button>( 9</button><button>) 0</button><button>_ -</button><button>+ =</button><button style="width: 128px;">« Backspace</button>
+      <button style="margin-left:0px">Insert</button><button>Home ⌂</button><button>Page ▲</button>
+      <button style="margin-left:0px">Num Γ</button><button>/</button><button>*</button><button>-</button>
+    </div>
+    <div>
+      <button style="width: 96px" class="bp">Tab »</button><button class="bp">Q</button><button class="bp">W</button><button class="bp">E</button><button class="bp">R</button><button class="bp">T</button><button class="bp">Y</button><button class="bp">U</button><button class="bp">I</button><button class="bp">O</button><button class="bp">P</button><button class="bp">{ [</button><button class="bp">} ]</button><button style="width: 96px" class="bp">| \</button>
+      <button style="margin-left:0px" class="bp">Delete</button><button class="bp">End φ</button><button class="bp">Page ▼</button>
+      <button style="margin-left:0px" class="bp">7 ⌂</button><button class="bp">8 ↑</button><button class="bp">9 ▲</button><button style="height: 128px;">+</button>
+    </div>
+    <div>
+      <button style="width: 112px">Caps Γ</button><button>A</button><button>S</button><button>D</button><button>F</button><button>G</button><button>H</button><button>J</button><button>K</button><button>L</button><button>: ;</button><button>" '</button><button style="width: 144px">⌡ Enter</button>
+      <button style="margin-left:200px">4 ←</button><button>5</button><button style="margin-right:64px">6 →</button>
+    </div>
+    <div>
+      <button style="width: 144px" class="bp">Shift ¡</button><button class="bp">Z</button><button class="bp">X</button><button class="bp">C</button><button class="bp">V</button><button class="bp">B</button><button class="bp">N</button><button class="bp">M</button><button class="bp">&lt; ,</button><button class="bp">&gt; .</button><button class="bp">? /</button><button style="width: 176px" class="bp">¡ Shift</button>
+      <button style="margin-left:64px" class="bp">↑</button>
+      <button style="margin-left:64px" class="bp">1 φ</button><button class="bp">2 ↓</button><button class="bp">3 ▼</button><button style="height: 128px;">Enter</button>
+    </div>
+    <div>
+      <button style="width: 96px">Ctrl</button><button style="width: 80px">▀▄</button><button style="width: 80px">Alt</button><button style="width: 368px"> </button><button style="width: 80px">Alt</button><button style="width: 80px">▀▄</button><button style="width: 80px">≡</button><button style="width: 96px">Ctrl</button>
+      <button style="margin-left:0px">←</button><button>↓</button><button>→</button>
+      <button style="width:128px; margin-left:0px;">0 Ins</button><button style="margin-right:64px">. Del</button>
+    </div>
+  </body>
+  <script>
+  
+  </script>
+</html>
