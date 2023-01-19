@@ -89,26 +89,24 @@ function encrypt (text) {
         var brCopy = bitRep[br];
         var endLetter = "";
         if (brCopy.length % 2 == 1) {
-            if (originalText.includes("~")) { 
-                if (brCopy[bitRep.length-1] == "0") { endLetter = "k"; }
-                else { endLetter = "l"; }
-            } else { 
-                if (brCopy[bitRep.length-1] == "0"){ endLetter = "e"; } 
-                else { endLetter = "f"; }
-            }
-            brCopy = brCopy.slice(0, -1);
+            if (brCopy[bitRep.length-1] == "0") { 
+                endLetter = "e"; } 
+            else { 
+                endLetter = "f"; 
+            }    
         }
-        var letters = "";
-        while (brCopy != "") {
-            switch (brCopy[0] + brCopy[1]) {
-                case "00": letters += "a"; break;
-                case "01": letters += "b"; break;
-                case "10": letters += "c"; break;
-                case "11": letters += "d"; break;
-            }
-            brCopy = brCopy.slice(2);
-        }
-        treeRep += (letters + endLetter + charSet[br]);
+        brCopy = brCopy.slice(0, -1);
     }
+    var letters = "";
+    while (brCopy != "") {
+        switch (brCopy[0] + brCopy[1]) {
+            case "00": letters += "a"; break;
+            case "01": letters += "b"; break;
+            case "10": letters += "c"; break;
+            case "11": letters += "d"; break;
+        }
+        brCopy = brCopy.slice(2);
+    }
+    treeRep += (letters + endLetter + charSet[br]);
     return treeRep + "x" + encryptedText;
 }
