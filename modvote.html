@@ -75,7 +75,6 @@
       <button onclick="Submit()" style="width: 320px; left:0px; right:0px;">Submit Session</button>
     </div>
   </body>
-  <script src='js/encryption.js'></script>
   <script>
     var mods = ["Wire Sequence", "Wires", "Who's on First", "Venting Gas", "Simon Says", "Password", "Morse Code", "Memory", "Maze", "Knob", "Keypad", "Complicated Wires", "Capacitor Discharge", "The Button", "Colour Flash", "Piano Keys", "Semaphore", "Math", "Emoji Math", "Lights Out", "Switches", "Two Bits", "Word Scramble", "Anagrams", "Combination Lock", "Filibuster", "Motion Sense", "Round Keypad", "Listening", "Foreign Exchange Rates", "Answering Questions", "Orientation Cube", "Morsematics", "Connection Check", "Letter Keys", "Forget Me Not", "Rotary Phone", "Astrology", "Logic", "Mystic Square", "Crazy Talk", "Adventure Game", "Turn The Key", "Plumbing", "Cruel Piano Keys", "Safety Safe", "Tetris", "Cryptography", "Chess", "Turn The Keys", "Mouse In The Maze", "3D Maze", "Silly Slots", "Simon States", "Number Pad", "Laundry", "Probing", "Alphabet", "Caesar Cipher", "Resistors", "Skewed Slots", "Perspective Pegs", "Microcontroller", "Murder", "The Gamepad", "Tic Tac Toe", "Who's That Monsplode?", "Monsplode, Fight!", "Shape Shift", "Follow the Leader", "Friendship", "The Bulb", "Blind Alley", "Sea Shells", "English Test", "Rock-Paper-Scissors-Lizard-Spock", "Square Button", "Hexamaze", "Bitmaps", "Colored Squares", "Adjacent Letters", "Third Base", "Souvenir", "Word Search", "Broken Buttons", "Simon Screams", "Modules Against Humanity", "Complicated Buttons", "Battleship", "Text Field", "Symbolic Password", "Wire Placement", "Double-Oh", "Cheap Checkout", "Coordinates", "Light Cycle", "HTTP Response", "Rhythms", "Color Math", "Only Connect", "Neutralization", "Web Design", "Chord Qualities", "Creation", "Rubik's Cube", "FizzBuzz", "The Clock", "LED Encryption", "Edgework", "Bitwise Operations", "Fast Math", "Minesweeper", "Zoo", "Binary LEDs", "Boolean Venn Diagram", "Point of Order", "Ice Cream", "Hex To Decimal", "The Screw", "Yahtzee"];
     var modcount = mods.length;
@@ -131,7 +130,7 @@
       if (modtallies[0].reduce((a, b) => a + b, 0) == 0) { alert("You haven't voted yet!"); return; }
       canBeAnnoyed = false;
       var url = "https://docs.google.com/forms/d/e/1FAIpQLSfdc-HZas2ft_jUaFnRXXvhH_CQzjX-wvCFWq2Wr0fLF6XImw/viewform?usp=pp_url&entry.967500159=";
-      var format = encrypt(modtallies[0].join('y') + "z" + modtallies[1].join('y'));
+      var format = (modtallies[0].join('t') + "b" + modtallies[1].join('t'));
       location.assign(url + format);
     }
   </script>
