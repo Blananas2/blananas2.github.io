@@ -89,7 +89,13 @@ function encrypt (text) {
         var brCopy = bitRep[br];
         var endLetter = "";
         if (brCopy.length % 2 == 1) {
-            endletter = (brCopy[bitRep.length-1] == "0" ? "e" : "f");
+            if (originalText.includes("~")) { 
+                if (brCopy[bitRep.length-1] == "0") { endLetter = "k"; }
+                else { endLetter = "l"; }
+            } else { 
+                if (brCopy[bitRep.length-1] == "0"){ endLetter = "e"; } 
+                else { endLetter = "f"; }
+            }
             brCopy = brCopy.slice(0, -1);
         }
         var letters = "";
