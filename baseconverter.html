@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="img/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Base Converter</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: 'Px437 IBM VGA 8x16';
+      src: url(font/Px437_IBM_VGA_8x16.ttf);
+    }
+
+    * {
+      font-family: 'Px437 IBM VGA 8x16', Courier, monospace;
+    }
+
+    p {
+      color: yellow;
+    }
+
+    body {
+      background-color: #242424;
+      font-size: 64px;
+    }
+
+    input {
+      color: black;
+      display: block;
+      margin : 0 auto;
+      width: 1120px;
+      height: 64px;
+      font-size: 64px;
+      text-align: right;
+    }
+
+    select {
+      color: black;
+      display: block;
+      margin: 0 auto;
+      margin-top: 16px;
+      font-size: 32px;
+      text-align: center;
+    }
+
+    button {
+      color: black;
+      display: block;
+      margin: 0 auto;
+      margin-top: 16px;
+      font-size: 64px;
+    }
+
+  </style>
+  <body id="bod">
+    <p style="font-size: 48px; text-align: center;">Base Converter</p>
+
+    <div style="justify-content: center; align-items: center; display: flex;">
+      <table>
+        <tr><th><input type="text" id="input"></th><th><input type="text" id="frombase" style="width: 96px;"></th></tr>
+        <tr><th><input type="text" id="output" readonly></th><th><input type="text" id="tobase" style="width: 96px;"></th></tr>
+      </table>
+    </div>
+    <div style="justify-content: center; align-items: center; display: flex;">
+      <table><tr>
+        <th><input type="text" id="inputalphabet" placeholder="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" style="font-size: 16px; width: 320px; height: 32px; text-align:center;"></th>
+        <th><input type="text" id="outputalphabet" placeholder="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" style="font-size: 16px; width: 320px; height: 32px; text-align:center;"></th>
+      </tr></table>
+    </div>
+    <button onclick="start()">Convert</button>
+  </body>
+  <script>
+//     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //
+function start() {
+  var inp = document.getElementById('input').value;
+  var from = document.getElementById('frombase').value;
+  var to = document.getElementById('tobase').value;
+  var out = document.getElementById('output');
+
+  out.value = convertBases(inp, from, to);
+}
+
+function convertBases(number, frombase, tobase) {
+  if (number == "") { return "Please provide an input number"; }
+  if (frombase == "") { return "Please provide an input base"; }
+  if (tobase == "") { return "Please provide an output base"; }
+  if (tobase == 0 || frombase == 0) { return "NaN"; }
+
+  var inbet = document.getElementById('inputalphabet').value;
+  var outbet = document.getElementById('outputalphabet').value;
+  var insymbols = (inbet == "") ? "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" : inbet;
+  var outsymbols = (outbet == "") ? "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" : outbet;
+
+  var negative = (number[0] == "-");
+  var stringNum = (number[0] == "-") ? number.slice(1) : number;
+  var total = 0;
+  for (i = 0; i < stringNum.length; i++) {
+    total += (insymbols.indexOf(stringNum[i]) * Math.pow(frombase, stringNum.length - (i + 1)));
+  }
+
+  var powers = [1];
+  while (powers[powers.length-1] < (total/2)+1) {
+    powers.push(powers[powers.length-1]*tobase);
+  }
+
+  var current = powers.length-1;
+  var answer = "";
+  var adding = 0;
+  total += 1;
+
+  for (i = 0; i < powers.length; i++) {
+    if (total > current) {
+      while (0 < total - Math.pow(tobase, current)) {
+        total -= Math.pow(tobase, current);
+        adding += 1;
+      }
+    }
+    answer = answer + outsymbols[adding];
+    current -= 1;
+    adding = 0;
+  }
+
+  if (answer[0] == outsymbols[0] && answer.length != 1) { //if you can figure out how to get rid of this jank, please do let me know!
+    while (answer[0] == outsymbols[0]) {
+      answer = answer.slice(1);
+    }
+  }
+
+  return negative ? "-" + answer : answer;
+}
+//     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //
+  </script>
+</html>
