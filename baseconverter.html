@@ -71,7 +71,6 @@
     <button onclick="start()">Convert</button>
   </body>
   <script>
-//     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //
 function start() {
   var inp = document.getElementById('input').value;
   var from = document.getElementById('frombase').value;
@@ -89,8 +88,15 @@ function convertBases(number, frombase, tobase) {
 
   var inbet = document.getElementById('inputalphabet').value;
   var outbet = document.getElementById('outputalphabet').value;
-  var insymbols = (inbet == "") ? "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" : inbet;
-  var outsymbols = (outbet == "") ? "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" : outbet;
+  var insymbols = (inbet == "") ? "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" : inbet;
+  var outsymbols = (outbet == "") ? "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ" : outbet;
+  if (((number.match(/[A-Z]/) && !number.match(/[a-z]/)) || (!number.match(/[A-Z]/) && number.match(/[a-z]/))) && !(inbet.match(/[A-Z]/) && inbet.match(/[a-z]/))) {
+    number = number.toUpperCase();
+    insymbols = insymbols.toUpperCase();
+  }
+  for (n = 0; n < number.length; n++) {
+    if (insymbols.indexOf(number[n]) == -1) { return "Please only use input symbols"; }
+  }
 
   var negative = (number[0] == "-");
   var stringNum = (number[0] == "-") ? number.slice(1) : number;
@@ -129,6 +135,5 @@ function convertBases(number, frombase, tobase) {
 
   return negative ? "-" + answer : answer;
 }
-//     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //     //
   </script>
 </html>
