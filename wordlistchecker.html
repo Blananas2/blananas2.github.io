@@ -64,7 +64,7 @@
       <button onclick="check()">Check</button>
       <p style="text-align: center;" id="result"></p>
     </div>
-    <p style="font-size: 16px; text-align: center;">Last updated April 4th, 2023</p>
+    <p style="font-size: 16px; text-align: center;">Last updated July 23rd, 2023</p>
   </body>
   <script src='js/wordlists.js'></script>
   <script>
@@ -90,6 +90,11 @@
       var list = NameToVar(mod);
       var result = document.getElementById('result');
       
+      if (mod == "") {
+        result.innerHTML = "Please choose a module.";
+        result.style.color = "maroon";
+        return;
+      }
       if (list == null) {
         result.innerHTML = "ERROR, contact Blan.";
         result.style.color = "maroon";
