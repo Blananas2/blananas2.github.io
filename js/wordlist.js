@@ -78,12 +78,12 @@ const moduleData = [
 
 function findWord (mdl, wrd) {
     return new Promise((resolve, reject) => {
-        if (wrd.replaceAll(" ", "") === "") { reject({ text: "Please enter a word.", color: "white" }); }
+        if (wrd.match(/[^A-Z]/gi)) { reject({ text: "Please enter a word.", color: "white" }); }
         if (mdl === "") { reject({ text: "Please choose a module.", color: "white" }); }
 
         for (md = 0; md < moduleData.length; md++) {
             if (mdl === moduleData[md].mod) {
-                let word = (moduleData[md].pad).replace("*", wrd.replace(" ", ""));
+                let word = (moduleData[md].pad).replace("*", wrd);
                 word = (moduleData[md].cap === 0) ? word.toLowerCase() : word.toUpperCase();
                 fetch(moduleData[md].url).then(response => {
                     if (!response.ok) {
