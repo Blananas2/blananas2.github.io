@@ -64,17 +64,18 @@
       <button onclick="check()">Check</button>
       <p style="text-align: center;" id="result"></p>
     </div>
-    <p style="font-size: 16px; text-align: center;">Last updated July 23rd, 2023</p>
+    <p style="font-size: 16px; text-align: center;">Last updated September 6th, 2023</p>
   </body>
-  <script src='js/wordlists.js'></script>
+  <script src='js/wordlist.js'></script>
   <script>
-    var select = document.getElementById('mod');
-    var all = document.getElementById('bod');
+    let canHitButton = true;
+    let select = document.getElementById('mod');
+    let resultField = document.getElementById('result');
 
-    for (var m = 0; m < ModuleList.length; m++){
-      var opt = document.createElement('option');
-      opt.value = ModuleList[m];
-      opt.innerHTML = ModuleList[m];
+    for (m = 0; m < moduleData.length; m++){
+      let opt = document.createElement('option');
+      opt.value = moduleData[m].mod;
+      opt.innerHTML = moduleData[m].mod;
       select.appendChild(opt);
     }
 
@@ -85,42 +86,28 @@
     });
 
     function check() {
-      var word = document.getElementById('word').value.toLowerCase();
-      var mod = document.getElementById('mod').value;
-      var list = NameToVar(mod);
-      var result = document.getElementById('result');
+      if (!canHitButton) {
+        return;
+      }
+      canHitButton = false;
+      let mod = document.getElementById('mod').value;
+      let word = document.getElementById('word').value;
       
-      if (mod == "") {
-        result.innerHTML = "Please choose a module.";
-        result.style.color = "maroon";
-        return;
+      resultField.innerHTML = "Checking...";
+      resultField.style.color = "white";
+
+      findWord(mod, word)
+      .then(result => {
+        resultField.innerHTML = result.text;
+        resultField.style.color = result.color;
+      })
+      .catch(error => {
+        resultField.innerHTML = error.text;
+        resultField.style.color = error.color;
       }
-      if (list == null) {
-        result.innerHTML = "ERROR, contact Blan.";
-        result.style.color = "maroon";
-        return;
-      }
-      if (list[0].includes(word)) {
-        result.innerHTML = "\"" + word.toUpperCase() + "\" is in the word list for " + mod;
-        result.style.color = "green";
-      } else if (list[1].includes(word)) {
-        if (list == ColoredCiphers || mod == "Cipher Machine" || mod == "Metapuzzle" || mod == "Shape Cipher" || mod == "Ultimate Cipher") {
-          result.innerHTML = "\"" + word.toUpperCase() + "\" is within the code for " + mod + ", but cannot be the answer";
-        } else if (mod == "Word Scramble") {
-          result.innerHTML = "\"" + word.toUpperCase() + "\" is only in the word list for " + mod + " if you have Module Tweaks enabled";
-        } else if (mod == "Wordle") {
-          result.innerHTML = "\"" + word.toUpperCase() + "\" is a valid guess for " + mod + ", but not a valid answer";
-        } else {
-          result.innerHTML = "\"" + word.toUpperCase() + "\" is in the ruleseeded word list for " + mod;
-        }
-        result.style.color = "blue";
-      } else {
-        result.innerHTML = "\"" + word.toUpperCase() + "\" is not in the word list for " + mod;
-        result.style.color = "red";
-        if (result.innerHTML == "\"") {
-          result.innerHTML = "☻";
-        }
-      }
+      );
+
+      canHitButton = true;
     }
   </script>
 </html>
