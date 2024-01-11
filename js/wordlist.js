@@ -52,7 +52,7 @@ const moduleData = [
     { mod: "Outrageous", url: "https://raw.githubusercontent.com/Blananas2/ktane-outrageous/master/Assets/outrageousScript.cs", pad: p, cap: 1 },
     { mod: "Pandemonium Cipher", url: "https://raw.githubusercontent.com/Ob3vious/KTaNE_PlanarCiphers/master/Assets/Wordlist.cs", pad: p, cap: 0 },
     { mod: "Phosphorescence", url: "https://raw.githubusercontent.com/Emik03/EmikModules/main/Assets/Modules/Phosphorescence/Data/WordList.txt", pad: "|*|", cap: 0 },
-    { mod: "Pigfair Cipher", url: "https://raw.githubusercontent.com/ferd032/PigfairCipher/main/Assets/PigfairCipher.cs", pad: p, cap: 1 },
+    { mod: "Pigfair Cipher", url: "https://raw.githubusercontent.com/QuinnWuest/KtanePigfairCipher/main/Assets/PigfairCipher.cs", pad: p, cap: 1 },
     { mod: "Pokémon Sprite Cipher", url: compressionSource, pad: p, cap: 1 },
     { mod: "Puzzword", url: "https://raw.githubusercontent.com/Timwi/KtanePuzzword/master/Assets/Scripts/Data.cs", pad: p, cap: 1 },
     { mod: "RSA Cipher", url: "https://raw.githubusercontent.com/obachs971/RSACipher/main/Assets/rsaCipher.cs", pad: p, cap: 1 },
