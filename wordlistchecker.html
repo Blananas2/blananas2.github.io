@@ -64,13 +64,13 @@
           <option disabled selected value>Choose module...</option>
         </select>
         </td><td>
-        <button onclick="openManual()" style="height: 44px; font-size: 32px;">!</button>
+        <button onclick="openList()" style="height: 44px; font-size: 32px;">!</button>
         </td>
       </tr></table>
       <button onclick="check()">Check</button>
       <p style="text-align: center;" id="result"></p>
     </div>
-    <p style="font-size: 16px; text-align: center;">Last updated January 10th, 2024</p>
+    <p style="font-size: 16px; text-align: center;">Last updated May 1st, 2024</p>
   </body>
   <script src='js/wordlist.js'></script>
   <script>
@@ -91,7 +91,7 @@
       }
     });
 
-    function openManual() {
+    function openList() {
       let mod = document.getElementById('mod').value;
       for (m = 0; m < moduleData.length; m++) {
         if (moduleData[m].mod === mod) {

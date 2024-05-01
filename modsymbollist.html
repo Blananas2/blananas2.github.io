@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="img/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>KTANE Mod Symbol Test</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: 'Alatsi';
+      src: url(font/Alatsi-Regular.ttf);
+    }
+
+    * {
+      font-family: 'Alatsi', Arial, sans-serif;
+    }
+
+    p {
+      color: yellow;
+    }
+    .list {
+      color: white;
+      text-align: center;
+    }
+
+    body {
+      background-color: #242424;
+      font-size: 32px;
+    }
+
+    .symbol {
+      font-size: 64px;
+    }
+
+  </style>
+  <body id="bod">
+    <p style="font-size: 48px; text-align: center;">Symbol List</p>
+    <ul id="list" class="list"></ul>
+  </body>
+  <script>
+let ulList = document.getElementById('list');
+let relevantData = [];
+let justSymbols = true;
+
+fetchRepoData();
+
+async function fetchRepoData() {
+  let request = await fetch("https://ktane.timwi.de/json/raw");
+  let reqText = await request.text();
+  let reqJson = JSON.parse(reqText).KtaneModules;
+
+  for (let j = 0; j < reqJson.length; j++) {
+    let name = reqJson[j].Name;
+    let symbol = reqJson[j].Symbol;
+    if (symbol == null) {
+      continue;
+    } else {
+      relevantData.push([symbol, name]);
+    }
+  }
+
+  relevantData.sort((s, n) => {
+    return s[0].localeCompare(n[0]);
+  });
+  setList();
+}
+
+document.addEventListener("contextmenu", function(event)
+{
+  justSymbols = !justSymbols;
+  ulList.innerHTML = "";
+  setList();
+});
+
+function setList() {
+  for (let r = 0; r < relevantData.length; r++) {
+    let elementLi = document.createElement("li");
+    elementLi.innerHTML = ("<span class=\"symbol\">" + relevantData[r][0] + "</span>" + (!justSymbols ? (" " + relevantData[r][1]) : "")).replace("A>N", "A>N&lt;D");
+    ulList.appendChild(elementLi);
+  }
+}
+  </script>
+</html>
