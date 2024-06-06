@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="img/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Random Module</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: 'Atkinson Hyperlegible';
+      src: url(font/AtkinsonHyperlegible-Regular.ttf);
+    }
+
+    * {
+      font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
+      color: white;
+    }
+
+    body {
+      background-color: #000000;
+      font-size: 32px;
+    }
+
+    div {
+      justify-content: center; 
+      align-items: center; 
+      display: flex;
+    }
+
+    button {
+      font-style: bold;
+      font-size: 128px;
+      background-color: black;
+    }
+  </style>
+  <body>
+    <div>
+      <button id="button" onclick="generate()"></button>
+    </div>
+  </body>
+  <script>
+let button = document.getElementById('button');
+let canPress = false;
+let ktane = [];
+
+fetchRepoData();
+
+function generate() {
+  if (!canPress) { return; }
+  if (ktane.length === 0) { alert("That's all she wrote."); return; }
+  let index = Math.floor(Math.random() * ktane.length);
+  let chosen = ktane[index];
+  ktane.splice(index, 1);
+  window.open("https://ktane.timwi.de/redirect/#" + chosen, "mozillaTab");
+}
+
+async function fetchRepoData() {
+  let request = await fetch("https://ktane.timwi.de/json/raw");
+  let reqText = await request.text();
+  let reqJson = JSON.parse(reqText).KtaneModules;
+
+  for (let j = 0; j < reqJson.length; j++) {
+    if (!(reqJson[j].Type === "Regular" || reqJson[j].Type === "Needy") || reqJson[j].TranslationOf) {
+      continue;
+    } else {
+      ktane.push(reqJson[j].FileName ?? reqJson[j].Name);
+    }
+  }
+
+  button.innerText = "Random Module";
+  canPress = true;
+}
+  </script>
+</html>
