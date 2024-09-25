@@ -2,4 +2,4 @@
 A website by Blananas2, where I put some of the things I make.
 
 Credits:
-Fonts - VileR at https://int10h.org/oldschool-pc-fonts/
+Px437_IMB_VGA_8x16 Font - VileR at https://int10h.org/oldschool-pc-fonts/
