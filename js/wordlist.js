@@ -222,7 +222,7 @@ function inWordListObj (word, data, mod) {
         let splitData = data.split(exc.splitSpec[0]);
         for (d = 0; d < exc.splitSpec[1].length; d++) {
             if (splitData[d].includes(word)) {
-                return { text: (wordInAllCaps + exc.splitSpec[1][d].replace("*", mod)), color: splitSpec[2][d] };
+                return { text: (wordInAllCaps + exc.splitSpec[1][d].replace("*", mod)), color: exc.splitSpec[2][d] };
             }
         }
         return { text: (wordInAllCaps + " is not in the word list for " + mod), color: "crimson" };
