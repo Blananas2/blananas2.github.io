@@ -1,29 +1,29 @@
 # Wordlist Checker documentation:
-KTANE Wordlist Checker is a tool used to check for if specific words are in a module's wordlists, by fetching wordlists from GitHub repositories.
+KTANE Wordlist Checker is a tool used to check for if specific words are in a module's wordlist, by fetching wordlists from GitHub repositories.
 Note this is _not_ recessary for modules where the wordlist is listed in the manual, and cannot be done for modules which are not open-source.
 Currently Wordlist Checker only accepts letters (in either case) as input.
 
-Within ***`js/wordlist.js`*** there are two arrays of Javascript objects which Wordlist Checker uses:<br>
+Within ***`js/wordlist.js`*** there are two arrays of JavaScript objects which Wordlist Checker uses:<br>
 **`moduleData`** is mandatory, and **`exceptionData`** is optional.
 
 ## `moduleData`
-Each object in the array consists of four properties, none of which can be omitted:
+Each object in this array consists of four properties, none of which can be omitted:
 - **`mod`** _(string)_ is the name of the module, it should match what is shown on the main page on the [Repository of Manual Pages](https://ktane.timwi.de/).
   - Sort these arrays in the same way as the manual repository: alphabetically omitting instances of "The" at the start, spaces are ignored.
   - In cases where the module name on the page contains a `’` or `×`, they get replaced with `'` and `x` respectively as those characters are not supported by the site's font. If there's no fitting substitute for a character, `☺` can be used instead.
 - **`url`** _(string)_ is the URL where the file containing the wordlist for the module is located.
   - Use the *raw* URL for this: Navigate to the file at the GitHub repo then click the "Raw" button to be sent to the raw page.
-  - The specific file format is not relevant; the code will convert the entire file to a string.
+  - The specific file format is not relevant; the code will interpret the entire file's source as a string.
   - At the top of ***`wordlist.js`*** there are a few constants which serve to make the file less repetitive. The most applicable one is **`rghuc`** which is the string `https://raw.githubusercontent.com/`.
   - Wordlist Checker currently only has the ability to use _one_ URL, if the lists are split among two or more files, a file to use as an alternative should be provided within this repository instead so that the tool is able to function.
   - The `!` button on the site will open the page in a new tab, which is good because you doesn't send a fetch request just to ensure the URL is correct.
-- **`pad`** _(string)_ is the padding which the word by the user will be expected to be surrounded by, the `*` in this string is where the word will be placed.
+- **`pad`** _(string)_ is the padding which the word by the user will be expected to be surrounded by within the source file, the `*` in this string is where the word will be placed.
   - Like **`url`**, there's constants at the top of ***`wordlist.js`*** for the two most common paddings: **`p`** and **`s`** are the strings `"*"` and `,*,` respectively.
   - In cases where the padding is different for words at the start or end of the list, use **`exceptionData`** for ways to work around such problems and make sure these specific cases are tested _before_ submitting a pull request.
 - **`cap`** _(bool)_ specifies how the text within the file is capitalized, where `true` or `false` are uppercase or lowercase respectively.
   - In cases where the words within the wordlist are in mixed case, **`forceCap`** should be used within **`exceptionData`**. Set **`cap`** corresponding to the more frequent letter case.
 
-To summarize in the context of the actual site, whenever the user selects the module matching **`mod`** property in one of these objects, that object is used. Specifically, the site will change the capitalization of the input based on **`cap`**, fetch from the specified **`url`** for the file which is then converted to a string, then looks for any instances of the input present with the specified **`pad`** present to determine whether that word is present within the wordlist.
+To summarize in the context of the actual site, whenever the user selects the module matching **`mod`** property in one of these objects, that object is used. Specifically, the site will change the capitalization of the input based on **`cap`**, fetch from the specified **`url`** for the file which is then interpreted as a string, then looks for any instances of the input present with the specified **`pad`** present to determine whether that word is present within the wordlist.
 
 ## `exceptionData`
 Each object in the array can have an arbitrary number of properties, depending on what should or should not be valid:
