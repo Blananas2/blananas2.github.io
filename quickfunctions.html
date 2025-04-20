@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="img/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Quick Functions</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: 'Fira Mono';
+      src: url(font/FiraMono-Medium.ttf);
+    }
+
+    * { font-family: 'Fira Mono', Courier, monospace; }
+
+    p { color: white; }
+
+    p.result { cursor: pointer; }
+
+    body {
+      background-color: #242424;
+      font-size: 64px;
+    }
+
+    input {
+      background-color: #cccccc;
+      color: black;
+      display: block;
+      margin : 0 auto;
+      width: 1440px;
+      height: 74px;
+      font-size: 64px;
+      text-align: center;
+      tab-size: 1;
+    }
+
+    select {
+      color: black;
+      display: block;
+      margin: 0 auto;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      font-size: 32px;
+      text-align: center;
+    }
+
+    div.guide {
+      color: white;
+      font-size: 16px;
+      text-align: center;
+    }
+
+  </style>
+  <body id="bod">
+    <p style="font-size: 48px; text-align: center; color: yellow;">Quick Functions</p>
+    <select name="funcList" id="func">
+      <option disabled selected value>Choose function...</option>
+    </select>
+    <div>
+      <input type="text" id="input">
+      <p class="result" style="text-align: center;" id="result"></p>
+    </div>
+    <div class="guide" id="guide"></div>
+    </body>
+    <script src='js/quickfunctions.js'></script>
+  <script>
+    let functionField = document.getElementById('func');
+    let inputField = document.getElementById('input');
+    let resultField = document.getElementById('result');
+    let guide = document.getElementById('guide');
+
+    for (f = 0; f < functionData.length; f++){
+      let opt = document.createElement('option');
+      opt.value = functionData[f].name;
+      opt.innerHTML = functionData[f].name;
+      functionField.appendChild(opt);
+    }
+
+    showGuide();
+
+    functionField.addEventListener("change", (e) => {
+      showGuide();
+    });
+
+    function showGuide() {
+      for (f = 0; f < functionData.length; f++) {
+        if (functionData[f].name == functionField.value) {
+          guide.innerHTML = functionData[f].desc;
+          break;
+        }
+      }
+    }
+
+    inputField.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        result.innerHTML = runFunction(functionField.value, inputField.value);
+      }
+    });
+
+    resultField.addEventListener("click", () => {
+      navigator.clipboard.writeText(resultField.innerText);
+    });
+  </script>
+</html>
