@@ -9,7 +9,7 @@ let functionData = [
     },
     {
         name: "Base conversion",
-        desc: "Converts input from a specified base to another specified base.<br>Put your bases in square brackets at start or end.<br>Provide two bases separated in base ten, with the 'from' base first and 'to' base second.<br>Currently limited to range [2, 36] inclusive."
+        desc: "Converts input from a specified base to another specified base.<br>Put your bases in square brackets at start or end.<br>Provide two bases separated by a space in base ten, with the 'from' base first and 'to' base second.<br>Currently limited to range [2, 36] inclusive."
     },
     {
         name: "Caesar cipher",
