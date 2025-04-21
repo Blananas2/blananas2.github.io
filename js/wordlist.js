@@ -63,6 +63,7 @@ const moduleData = [
     { mod: "Pokémon Sprite Cipher", url: compressionSource, pad: p, cap: true },
     { mod: "Pluto", url: rghuc + "Blananas2/ktane-blanets/refs/heads/main/Assets/Planet Files/Pluto/PlutoScript.cs", pad: p, cap: true },
     { mod: "Puzzword", url: rghuc + "Timwi/KtanePuzzword/master/Assets/Scripts/Data.cs", pad: p, cap: true },
+    { mod: "QWERTY Coordinates", url: rghuc + "Red-P-enguin/qwertyCoordinates/refs/heads/main/Assets/Data.cs", pad: p, cap: true },
     { mod: "RSA Cipher", url: rghuc + "obachs971/RSACipher/main/Assets/rsaCipher.cs", pad: p, cap: true },
     { mod: "Red Cipher", url: ultimateSource, pad: p, cap: true },
     { mod: "Red Huffman Cipher", url: seperatedSource, pad: p, cap: true },
@@ -165,6 +166,7 @@ const exceptionData = [
     { mod: "Pigfair Cipher", eqlLength: 8 },
     { mod: "Pokémon Sprite Cipher", befAftReplace: ["\n", "\""] },
     { mod: "Pluto", eqlLength: 4 },
+    { mod: "QWERTY Coordinates", befAftReplace: ["P", "~"] }, //words with a P are not valid
     { mod: "RSA Cipher", eqlLength: 6, excWords: ["MODULE", "SOLVED"], excText: isNot, excColor: "crimson" },
     { mod: "Red Cipher", eqlLength: 6, excText: butNot },
     { mod: "Red Huffman Cipher", minMaxLength: [4, 9] },
