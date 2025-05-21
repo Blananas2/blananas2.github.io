@@ -134,7 +134,7 @@ const exceptionData = [
     { mod: "Boggle", befAftReplace: ["\"", ",\","] },
     { mod: "Boomtar the Great", befAftReplace: ["\"", ",\","] },
     { mod: "Brown Cipher", eqlLength: 6, excText: butNot },
-    { mod: "Copper-9", splitSpec: ["_moduleIdCounter", [isIn, isNot], ["forestgreen", "crimson"]] },
+    { mod: "Copper-9", befAftReplace: ["_moduleIdCounter =", "new List<string>()"], splitSpec: ["new List<string>()", [null, butNot, butNot, isIn, butNot, butNot, isNot], [null, "gold", "gold", "forestgreen", "gold", "gold", "crimson"] ] },
     { mod: "Coral Cipher", eqlLength: 6, excText: butNot },
     { mod: "Cornflower Cipher", eqlLength: 6, excText: butNot },
     { mod: "Cream Cipher", eqlLength: 6, excText: butNot },
