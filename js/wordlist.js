@@ -15,6 +15,7 @@ const moduleData = [
     { mod: "Arithmetic Cipher", url: compressionSource, pad: p, cap: true },
     { mod: "The Azure Button", url: buttonSource, pad: p, cap: true },
     { mod: "Basic Morse", url: rghuc + "Fartlicker777/Basic-Morse/master/Basic%20Morse/Assets/BasicMorse.cs", pad: p, cap: true },
+    { mod: "Bell of Tío", url: rghuc + "QuinnWuest/KtaneBellOfTio/refs/heads/master/Assets/BellOfTioScript.cs", pad: p, cap: true },
     { mod: "Black Cipher", url: ultimateSource, pad: p, cap: true },
     { mod: "The Blue Button", url: buttonSource, pad: p, cap: true },
     { mod: "Blue Cipher", url: ultimateSource, pad: p, cap: true },
@@ -91,7 +92,7 @@ const moduleData = [
 
 function findWord (mdl, wrd) {
     return new Promise((resolve, reject) => {
-        if (wrd.match(/[^A-Z]/gi)) { reject({ text: "Please enter a word.", color: "white" }); }
+        if (wrd.match(/[^A-Z]/gi) || wrd === "") { reject({ text: "Please enter a word.", color: "white" }); }
         if (mdl === "") { reject({ text: "Please choose a module.", color: "white" }); }
 
         for (md = 0; md < moduleData.length; md++) {
@@ -127,6 +128,7 @@ const exceptionData = [
     { mod: "Arithmetic Cipher", befAftReplace: ["\n", "\""], minMaxLength: [4, 6], excText: butNot },
     { mod: "The Azure Button", eqlLength: 4 },
     { mod: "Basic Morse", minMaxLength: [4, 9] },
+    { mod: "Bell of Tío", eqlLength: 5 },
     { mod: "Black Cipher", eqlLength: 6, excText: butNot },
     { mod: "The Blue Button", eqlLength: 5 },
     { mod: "Blue Cipher", eqlLength: 6, excText: butNot },

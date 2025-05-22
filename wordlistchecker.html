@@ -67,7 +67,7 @@
       <button onclick="check()">Check</button>
       <p style="text-align: center;" id="result"></p>
     </div>
-    <p style="font-size: 16px; text-align: center;">Last updated May 21st, 2025</p>
+    <p style="font-size: 16px; text-align: center;">Last updated May 22nd, 2025</p>
     <p style="font-size: 16px; text-align: center;"><a href="https://github.com/Blananas2/blananas2.github.io/blob/main/js/wordlistcheckerdocumentation.md">Documentation</a></p>
   </body>
   <script src='js/wordlist.js'></script>
@@ -104,7 +104,7 @@
       }
       canHitButton = false;
       let mod = document.getElementById('mod').value;
-      let word = document.getElementById('word').value;
+      let word = document.getElementById('word').value.trim();
       
       resultField.innerHTML = "Checking...";
       resultField.style.color = "white";
