@@ -65,6 +65,9 @@
     </body>
     <script src='js/quickfunctions.js'></script>
   <script>
+    const urlQuery = window.location.search;
+    const urlSearch = new URLSearchParams(urlQuery);
+
     let functionField = document.getElementById('func');
     let inputField = document.getElementById('input');
     let resultField = document.getElementById('result');
@@ -75,6 +78,9 @@
       opt.value = functionData[f].name;
       opt.innerHTML = functionData[f].name;
       functionField.appendChild(opt);
+      if (urlSearch.get("q") === functionData[f].urlq) {
+        functionField.value = functionData[f].name;
+      }
     }
 
     showGuide();
@@ -86,7 +92,7 @@
     function showGuide() {
       for (f = 0; f < functionData.length; f++) {
         if (functionData[f].name == functionField.value) {
-          guide.innerHTML = functionData[f].desc;
+          guide.innerHTML = functionData[f].desc + "<br><br>Put ?q=" + functionData[f].urlq + " at the end of the URL to pre-select this function." ;
           break;
         }
       }

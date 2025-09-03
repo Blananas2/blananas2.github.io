@@ -1,22 +1,27 @@
 let functionData = [
     {
         name: "Add times",
+        urlq: "addtimes",
         desc: "Calculates provided times added together.<br>Separate times with whitespace.<br>It will use the number of decimal points of precision after seconds based on the first time."
     },
     {
         name: "Average times",
+        urlq: "avgtimes",
         desc: "Calculates the average of provided times.<br>Separate times with whitespace.<br>It will use the number of decimal points of precision after seconds based on the first time."
     },
     {
         name: "Base conversion",
+        urlq: "baseconvert",
         desc: "Converts input from a specified base to another specified base.<br>Put your bases in square brackets at start or end.<br>Provide two bases separated by a space in base ten, with the 'from' base first and 'to' base second.<br>Currently limited to range [2, 36] inclusive."
     },
     {
         name: "Caesar cipher",
+        urlq: "caesar",
         desc: "Applies Caesar cipher on the given key.<br>Put your key in square brackets at start or end.<br>Negative keys are supported."
     },
     {
         name: "Evaluate",
+        urlq: "eval",
         desc: "Runs the eval() JavaScript function on the input.<br>Errors will be caught and shown."
     }
 ];
