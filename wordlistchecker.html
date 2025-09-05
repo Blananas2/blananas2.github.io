@@ -67,20 +67,32 @@
       <button onclick="check()">Check</button>
       <p style="text-align: center;" id="result"></p>
     </div>
-    <p style="font-size: 16px; text-align: center;">Last updated May 22nd, 2025</p>
+    <p style="font-size: 16px; text-align: center;">Last updated September 5th, 2025</p>
     <p style="font-size: 16px; text-align: center;"><a href="https://github.com/Blananas2/blananas2.github.io/blob/main/js/wordlistcheckerdocumentation.md">Documentation</a></p>
   </body>
   <script src='js/wordlist.js'></script>
   <script>
+    const urlQuery = window.location.search;
+    const urlSearch = new URLSearchParams(urlQuery);
+
     let canHitButton = true;
-    let select = document.getElementById('mod');
+    let textbox = document.getElementById('word');
+    let selector = document.getElementById('mod');
     let resultField = document.getElementById('result');
 
     for (m = 0; m < moduleData.length; m++){
       let opt = document.createElement('option');
       opt.value = moduleData[m].mod;
       opt.innerHTML = moduleData[m].mod;
-      select.appendChild(opt);
+      selector.appendChild(opt);
+      if (urlSearch.get("m") === moduleData[m].id) {
+        selector.value = moduleData[m].mod;
+      }
+    }
+
+    if (urlSearch.get("q")) {
+      textbox.value = urlSearch.get("q").toUpperCase();
+      check();
     }
 
     bod.addEventListener("keydown", (event) => {
@@ -103,8 +115,8 @@
         return;
       }
       canHitButton = false;
-      let mod = document.getElementById('mod').value;
-      let word = document.getElementById('word').value.trim();
+      let mod = selector.value;
+      let word = textbox.value.trim();
       
       resultField.innerHTML = "Checking...";
       resultField.style.color = "white";

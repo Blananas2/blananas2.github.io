@@ -7,10 +7,12 @@ Within ***`js/wordlist.js`*** there are two arrays of JavaScript objects which W
 **`moduleData`** is mandatory, and **`exceptionData`** is optional.
 
 ## `moduleData`
-Each object in this array consists of four properties, none of which can be omitted:
+Each object in this array consists of five properties, none of which can be omitted:
 - **`mod`** _(string)_ is the name of the module, which should match what is shown on the main page of the [Repository of Manual Pages](https://ktane.timwi.de/).
   - Sort these arrays in the same way as the manual repository: alphabetically omitting instances of "The" at the start, ignoring spaces.
   - In cases where the module name contains a `’` or `×`, replace them with `'` and `x` respectively as those characters are not supported by the site's font. If there's no fitting substitute for a character, `☺` can be used instead.
+- **`id`** _(string)_ is the module ID of the module, which should also match that of what is shown on the Repository of Manual Pages.
+  - The relevant use case here is for Wordlist Checker's URL parameters, appending `?m=moduleID` to the URL will set the module selection to whichever module has the ID `moduleID`, if present.
 - **`url`** _(string)_ is the URL where the file containing the wordlist for the module is located.
   - Use the *raw* URL for this: Navigate to the file at the corresponding module's GitHub repository then click the "Raw" button to be sent to the raw page.
   - The specific file format is not relevant; the code will interpret the entire file's source as a string.
@@ -47,5 +49,7 @@ Each object in this array can have an arbitrary number of properties, depending 
   - Should a section contain no words, for readability set it's corresponding locations in the nested arrays to `null`.
   - The nested arrays work in exactly the same way as **`excText`** and **`excColor`**.
 
-When submitting a pull request, don't forget to update the date on line 73 of ***`wordlistchecker.html`***.<br>
+When submitting a pull request, don't forget to update the date on line 70 of ***`wordlistchecker.html`***.<br>
 If you have any comments, questions, concerns, suggestions: do not hesitate to contact me (@blananas2) on Discord.
+
+Bonus tip: In addition to appending `?m=moduleID` to the URL, appending `?m=moduleID&q=query` will let you select a word to query for that module. Computing the result of that query will also be done automatically.

@@ -9,85 +9,87 @@ const p = "\"*\"";
 const s = ",*,";
 
 const moduleData = [
-    { mod: "3x3 Yellow Cipher", url: seperatedSource, pad: p, cap: true },
-    { mod: "Anagrams", url: rghuc + "timtmok/ktanemod-anagrams/master/Assets/Scripts/AnagramsModule.cs", pad: p, cap: false },
-    { mod: "The Aqua Button", url: buttonSource, pad: p, cap: true },
-    { mod: "Arithmetic Cipher", url: compressionSource, pad: p, cap: true },
-    { mod: "The Azure Button", url: buttonSource, pad: p, cap: true },
-    { mod: "Basic Morse", url: rghuc + "Fartlicker777/Basic-Morse/master/Basic%20Morse/Assets/BasicMorse.cs", pad: p, cap: true },
-    { mod: "Bell of Tío", url: rghuc + "QuinnWuest/KtaneBellOfTio/refs/heads/master/Assets/BellOfTioScript.cs", pad: p, cap: true },
-    { mod: "Black Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "The Blue Button", url: buttonSource, pad: p, cap: true },
-    { mod: "Blue Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Blue Huffman Cipher", url: compressionSource, pad: p, cap: true },
-    { mod: "Boggle", url: rghuc + "AAces/KTaNE-Boggle/master/Assets/boggle.cs", pad: s, cap: true },
-    { mod: "Boomtar the Great", url: rghuc + "TasThiluna/Boomtar-the-Great/master/Assets/wordList.cs", pad: s, cap: true },
-    { mod: "Brown Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Caesar Psycho", url: rghuc + "Speakingevil/caesar-psycho/main/Assets/Wordlist.cs", pad: p, cap: true },
-    { mod: "Cipher Machine", url: rghuc + "obachs971/CipherCollection/main/Assets/Scripts/Data.cs", pad: p, cap: true },
-    { mod: "Color Braille", url: rghuc + "Timwi/KtaneColorBraille/master/Assets/WordsData.cs", pad: p, cap: false },
-    { mod: "Copper-9", url: rghuc + "SerialDesignationF/Copper-9/refs/heads/main/Copper-9/Copper9.cs", pad: p, cap: true },
-    { mod: "Coral Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Cornflower Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Cream Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Crimson Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Decomposed RGB Arithmetic", url: seperatedSource, pad: p, cap: true },
-    { mod: "Dice Cipher", url: rghuc + "tandyCake/KTaNEDiceCipher/main/Dice%20Cipher/Assets/WordList.cs", pad: p, cap: false },
-    { mod: "Distance Cipher", url: rghuc + "Eltrick/KtaneDistanceCipher/master/Assets/ModuleScripts/WordList.cs", pad: p, cap: true },
-    { mod: "Dreamcipher", url: rghuc + "KScl/KTaNE-Dreamcipher/master/Assets/DreamcipherAssets/word_list.json", pad: p, cap: false },
-    { mod: "☺NA Cipher", url: rghuc + "KiloBites/ktane-ENA-Cipher/master/Assets/Data.cs", pad: p, cap: true },
-    { mod: "Encryption Lingo", url: rghuc + "QuinnWuest/KtaneEncryptionLingo/master/Assets/Data.cs", pad: p, cap: true },
-    { mod: "Finite Loop", url: rghuc + "Blananas2/ktane-finiteLoop/main/Assets/finiteLoopScript.cs", pad: p, cap: true },
-    { mod: "Forest Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Fur Cipher", url: rghuc + "MageoMage/FurCipher/main/Assets/Data.cs", pad: p, cap: true },
-    { mod: "Gray Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Green Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Indigo Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Jailbreak", url: rghuc + "Fartlicker777/Trivia-Murder-Party/master/Trivia%20Murder%20Party/Assets/Modules/Jailbreak/WordList.cs", pad: p, cap: false },
-    { mod: "Lempel-Ziv Cipher", url: compressionSource, pad: p, cap: true },
-    { mod: "Linked Wordle", url: rghuc + "VFlyer/FlyersOtherModules/master/Assets/Scripts/LingoWordBank.cs", pad: p, cap: true },
-    { mod: "Maas Cipher", url: rghuc + "Awesome7285/MaasCipher/main/MaasCipher/Assets/MaasCipher.cs", pad: p, cap: true },
-    { mod: "Magenta Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Maroon Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Mechanus Cipher", url: rghuc + "Ob3vious/KTaNE_PlanarCiphers/master/Assets/Wordlist.cs", pad: p, cap: false },
-    { mod: "Metapuzzle", url: rghuc + "EpicToastTM/ktaneMetapuzzle/main/ktaneMetapuzzle-master/Assets/Misc/MainWordList.cs", pad: p, cap: true },
-    { mod: "Modern Cipher", url: rghuc + "TheFe91/ktane-CC/master/Assets/modernCipher.cs", pad: p, cap: true },
-    { mod: "The Navy Button", url: rghuc + "QuinnWuest/KtaneBundleOfABunchOfButtons/master/Lib/NavyButtonData.cs", pad: ";*=", cap: true },
-    { mod: "Notre-Dame Cipher", url: rghuc + "Gameplushy/notreDameCipher/master/notre-Dame%20Cipher/Assets/WordList.cs", pad: p, cap: true },
-    { mod: "Obscurdle", url: rghuc + "VFlyer/FlyersOtherModules/master/Assets/Scripts/LingoWordBank.cs", pad: p, cap: true },
-    { mod: "Odd One Out", url: rghuc + "Timwi/KtaneOddOneOut/master/Assets/OddOneOutModule.cs", pad: s, cap: true },
-    { mod: "Off-White Cipher", url: rghuc + "tandyCake/KTaNEOffWhiteCipher/master/Assets/Scripts/Data.cs", pad: p, cap: true },
-    { mod: "Orange Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Outrageous", url: rghuc + "Blananas2/ktane-outrageous/master/Assets/outrageousScript.cs", pad: p, cap: true },
-    { mod: "Pandemonium Cipher", url: rghuc + "Ob3vious/KTaNE_PlanarCiphers/master/Assets/Wordlist.cs", pad: p, cap: false },
-    { mod: "Phosphorescence", url: rghuc + "Emik03/EmikModules/main/Assets/Modules/Phosphorescence/Data/WordList.txt", pad: "|*|", cap: false },
-    { mod: "Pigfair Cipher", url: rghuc + "QuinnWuest/KtanePigfairCipher/main/Assets/PigfairCipher.cs", pad: p, cap: true },
-    { mod: "Pokémon Sprite Cipher", url: compressionSource, pad: p, cap: true },
-    { mod: "Pluto", url: rghuc + "Blananas2/ktane-blanets/refs/heads/main/Assets/Planet Files/Pluto/PlutoScript.cs", pad: p, cap: true },
-    { mod: "Puzzword", url: rghuc + "Timwi/KtanePuzzword/master/Assets/Scripts/Data.cs", pad: p, cap: true },
-    { mod: "QWERTY Coordinates", url: rghuc + "Red-P-enguin/qwertyCoordinates/refs/heads/main/Assets/Data.cs", pad: p, cap: true },
-    { mod: "RSA Cipher", url: rghuc + "obachs971/RSACipher/main/Assets/rsaCipher.cs", pad: p, cap: true },
-    { mod: "Red Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Red Huffman Cipher", url: seperatedSource, pad: p, cap: true },
-    { mod: "The Sapphire Button", url: buttonSource, pad: p, cap: true },
-    { mod: "Scrambled Periodic Words", url: rghuc + "RazorBlade22/KTaNE-Periodic-Words/refs/heads/main/Assets/Data.cs", pad: p, cap: true },
-    { mod: "Shape Cipher", url: rghuc + "TracksJosh/ktaneShapeCipher-master/main/Assets/Scripts/Data.cs", pad: p, cap: true },
-    { mod: "Shufflewords", url: rghuc + "Speakingevil/shufflewords/main/Assets/ShufflewordsScript.cs", pad: p, cap: true },
-    { mod: "Solitaire Cipher", url: rghuc + "obachs971/SolitaireCipher/main/Assets/solitaireCipher.cs", pad: p, cap: true },
-    { mod: "Spelling Buzzed", url: rghuc + "KtaneModules/ktane-spelling-buzzed-alex-chew/refs/heads/master/Assets/SpellingBuzzed/Resources/words.txt", pad: "|*|", cap: true },
-    { mod: "Touch Transmission", url: rghuc + "tandyCake/KTaNETouchTransmission/main/TouchTransmission/Assets/wordList.cs", pad: p, cap: false },
-    { mod: "Transmission Transposition", url: rghuc + "tandyCake/KTaNETransmissionTranslation/master/KTaNEMorseAnagrams/Assets/wordList.cs", pad: p, cap: true }, 
-    { mod: "Ultimate Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Unfair's Forgotten Ciphers", url: rghuc + "VFlyer/UnfairsRevenge/master/Assets/Scripts/UnfairsRevengeHandlers/Extreme%20Revenge%20Scripts/CipherMachineData.cs", pad: p, cap: true },
-    { mod: "Vigilant Psycho", url: rghuc + "VFlyer/vigilant-psycho/main/Assets/Wordlist.cs", pad: p, cap: true },
-    { mod: "Violet Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "White Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Word Scramble", url: rghuc + "timtmok/ktanemod-anagrams/master/Assets/Scripts/WordScrambleModule.cs", pad: p, cap: false },
-    { mod: "Wordle", url: rghuc + "Blananas2/blananas2.github.io/main/js/wordle.txt", pad: s, cap: false }, //technically will require manual updating, however i do not want to fetch twice
-    { mod: "Words", url: rghuc + "Fartlicker777/Trivia-Murder-Party/master/Trivia%20Murder%20Party/Assets/Modules/Words/AllWordList.cs", pad: s, cap: true },
-    { mod: "XO", url: rghuc + "vitzlo/KTaNE-XO/main/Assets/xoScript.cs", pad: p, cap: true },
-    { mod: "Yellow Cipher", url: ultimateSource, pad: p, cap: true },
-    { mod: "Yellow Huffman Cipher", url: compressionSource, pad: p, cap: true },
+    { mod: "3x3 Yellow Cipher", id: "3x3YellowCipher", url: seperatedSource, pad: p, cap: true },
+    { mod: "Anagrams", id: "AnagramsModule", url: rghuc + "timtmok/ktanemod-anagrams/master/Assets/Scripts/AnagramsModule.cs", pad: p, cap: false },
+    { mod: "The Aqua Button", id: "AquaButtonModule", url: buttonSource, pad: p, cap: true },
+    { mod: "Arithmetic Cipher", id: "ArithmeticCipherModule", url: compressionSource, pad: p, cap: true },
+    { mod: "The Azure Button", id: "AzureButtonModule", url: buttonSource, pad: p, cap: true },
+    { mod: "Basic Morse", id: "BasicMorse", url: rghuc + "Fartlicker777/Basic-Morse/master/Basic%20Morse/Assets/BasicMorse.cs", pad: p, cap: true },
+    { mod: "Bell of Tío", id: "BellOfTioModule", url: rghuc + "QuinnWuest/KtaneBellOfTio/refs/heads/master/Assets/BellOfTioScript.cs", pad: p, cap: true },
+    { mod: "Black Cipher", id: "blackCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "The Blue Button", id: "BlueButtonModule", url: buttonSource, pad: p, cap: true },
+    { mod: "Blue Cipher", id: "blueCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Blue Huffman Cipher", id: "BlueHuffmanCipherModule", url: compressionSource, pad: p, cap: true },
+    { mod: "Boggle", id: "boggle", url: rghuc + "AAces/KTaNE-Boggle/master/Assets/boggle.cs", pad: s, cap: true },
+    { mod: "Boomtar the Great", id: "boomtarTheGreat", url: rghuc + "TasThiluna/Boomtar-the-Great/master/Assets/wordList.cs", pad: s, cap: true },
+    { mod: "Brown Cipher", id: "brownCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Caesar Psycho", id: "caesarPsycho", url: rghuc + "Speakingevil/caesar-psycho/main/Assets/Wordlist.cs", pad: p, cap: true },
+    { mod: "Cipher Machine", id: "cipherMachine", url: rghuc + "obachs971/CipherCollection/main/Assets/Scripts/Data.cs", pad: p, cap: true },
+    { mod: "Color Braille", id: "ColorBrailleModule", url: rghuc + "Timwi/KtaneColorBraille/master/Assets/WordsData.cs", pad: p, cap: false },
+    { mod: "Copper-9", id: "copperNine", url: rghuc + "SerialDesignationF/Copper-9/refs/heads/main/Copper-9/Copper9.cs", pad: p, cap: true },
+    { mod: "Coral Cipher", id: "coralCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Cornflower Cipher", id: "cornflowerCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Cream Cipher", id: "creamCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Crimson Cipher", id: "crimsonCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Decomposed RGB Arithmetic", id: "rgbArithmeticDecomposed", url: seperatedSource, pad: p, cap: true },
+    { mod: "Dice Cipher", id: "diceCipher", url: rghuc + "tandyCake/KTaNEDiceCipher/main/Dice%20Cipher/Assets/WordList.cs", pad: p, cap: false },
+    { mod: "Distance Cipher", id: "DistanceCipherModule", url: rghuc + "Eltrick/KtaneDistanceCipher/master/Assets/ModuleScripts/WordList.cs", pad: p, cap: true },
+    { mod: "Dreamcipher", id: "ksmDreamcipher", url: rghuc + "KScl/KTaNE-Dreamcipher/master/Assets/DreamcipherAssets/word_list.json", pad: p, cap: false },
+    { mod: "☺NA Cipher", id: "enaCipher", url: rghuc + "KiloBites/ktane-ENA-Cipher/master/Assets/Data.cs", pad: p, cap: true },
+    { mod: "Encryption Lingo", id: "EncryptionLingoModule", url: rghuc + "QuinnWuest/KtaneEncryptionLingo/master/Assets/Data.cs", pad: p, cap: true },
+    { mod: "Faulty Colored Cube", id: "faultyColoredCube", url: rghuc + "llPlayll/KTANE-Colored-Cube-Variants/refs/heads/main/Assets/Modules/Faulty%20Colored/WordList.cs", pad: p, cap: true },
+    { mod: "Finite Loop", id: "finiteLoop", url: rghuc + "Blananas2/ktane-finiteLoop/main/Assets/finiteLoopScript.cs", pad: p, cap: true },
+    { mod: "Forest Cipher", id: "forestCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Fur Cipher", id: "furCipher", url: rghuc + "MageoMage/FurCipher/main/Assets/Data.cs", pad: p, cap: true },
+    { mod: "Gray Cipher", id: "grayCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Green Cipher", id: "greenCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Indigo Cipher", id: "indigoCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Jailbreak", id: "Jailbreak", url: rghuc + "Fartlicker777/Trivia-Murder-Party/master/Trivia%20Murder%20Party/Assets/Modules/Jailbreak/WordList.cs", pad: p, cap: false },
+    { mod: "Lempel-Ziv Cipher", id: "LempelZivCipherModule", url: compressionSource, pad: p, cap: true },
+    { mod: "Linked Wordle", id: "linkedWordleModule", url: rghuc + "VFlyer/FlyersOtherModules/master/Assets/Scripts/LingoWordBank.cs", pad: p, cap: true },
+    { mod: "Maas Cipher", id: "MaasCipher", url: rghuc + "Awesome7285/MaasCipher/main/MaasCipher/Assets/MaasCipher.cs", pad: p, cap: true },
+    { mod: "Magenta Cipher", id: "magentaCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Maroon Cipher", id: "maroonCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Mechanus Cipher", id: "mechanusCipher", url: rghuc + "Ob3vious/KTaNE_PlanarCiphers/master/Assets/Wordlist.cs", pad: p, cap: false },
+    { mod: "Metapuzzle", id: "metapuzzle", url: rghuc + "EpicToastTM/ktaneMetapuzzle/main/ktaneMetapuzzle-master/Assets/Misc/MainWordList.cs", pad: p, cap: true },
+    { mod: "Modern Cipher", id: "modernCipher", url: rghuc + "TheFe91/ktane-CC/master/Assets/modernCipher.cs", pad: p, cap: true },
+    { mod: "The Navy Button", id: "NavyButtonModule", url: rghuc + "QuinnWuest/KtaneBundleOfABunchOfButtons/master/Lib/NavyButtonData.cs", pad: ";*=", cap: true },
+    { mod: "Notre-Dame Cipher", id: "notreDameCipher", url: rghuc + "Gameplushy/notreDameCipher/master/notre-Dame%20Cipher/Assets/WordList.cs", pad: p, cap: true },
+    { mod: "Obscurdle", id: "ObscurdleModule", url: rghuc + "VFlyer/FlyersOtherModules/master/Assets/Scripts/LingoWordBank.cs", pad: p, cap: true },
+    { mod: "Odd One Out", id: "OddOneOutModule", url: rghuc + "Timwi/KtaneOddOneOut/master/Assets/OddOneOutModule.cs", pad: s, cap: true },
+    { mod: "Off-White Cipher", id: "offWhiteCipher", url: rghuc + "tandyCake/KTaNEOffWhiteCipher/master/Assets/Scripts/Data.cs", pad: p, cap: true },
+    { mod: "Orange Cipher", id: "orangeCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Outrageous", id: "outrageous", url: rghuc + "Blananas2/ktane-outrageous/master/Assets/outrageousScript.cs", pad: p, cap: true },
+    { mod: "Pandemonium Cipher", id: "pandemoniumCipher", url: rghuc + "Ob3vious/KTaNE_PlanarCiphers/master/Assets/Wordlist.cs", pad: p, cap: false },
+    { mod: "Password Hexaterminals", id: "hexaterminals", url: rghuc + "Speakingevil/password-hexaterminals/refs/heads/main/Assets/Wordlist.cs", pad: p, cap: true },
+    { mod: "Phosphorescence", id: "Phosphorescence", url: rghuc + "Emik03/EmikModules/main/Assets/Modules/Phosphorescence/Data/WordList.txt", pad: "|*|", cap: false },
+    { mod: "Pigfair Cipher", id: "PigfairCipher", url: rghuc + "QuinnWuest/KtanePigfairCipher/main/Assets/PigfairCipher.cs", pad: p, cap: true },
+    { mod: "Pokémon Sprite Cipher", id: "PokemonSpriteCipherModule", url: compressionSource, pad: p, cap: true },
+    { mod: "Pluto", id: "pluto", url: rghuc + "Blananas2/ktane-blanets/refs/heads/main/Assets/Planet Files/Pluto/PlutoScript.cs", pad: p, cap: true },
+    { mod: "Puzzword", id: "PuzzwordModule", url: rghuc + "Timwi/KtanePuzzword/master/Assets/Scripts/Data.cs", pad: p, cap: true },
+    { mod: "QWERTY Coordinates", id: "qwertyCoordinates", url: rghuc + "Red-P-enguin/qwertyCoordinates/refs/heads/main/Assets/Data.cs", pad: p, cap: true },
+    { mod: "RSA Cipher", id: "RSACipher", url: rghuc + "obachs971/RSACipher/main/Assets/rsaCipher.cs", pad: p, cap: true },
+    { mod: "Red Cipher", id: "redCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Red Huffman Cipher", id: "RedHuffmanCipherModule", url: seperatedSource, pad: p, cap: true },
+    { mod: "The Sapphire Button", id: "SapphireButtonModule", url: buttonSource, pad: p, cap: true },
+    { mod: "Scrambled Periodic Words", id: "periodicWordsScrambledRB", url: rghuc + "RazorBlade22/KTaNE-Periodic-Words/refs/heads/main/Assets/Data.cs", pad: p, cap: true },
+    { mod: "Shape Cipher", id: "shapeCipher", url: rghuc + "TracksJosh/ktaneShapeCipher-master/main/Assets/Scripts/Data.cs", pad: p, cap: true },
+    { mod: "Shufflewords", id: "shufflewords", url: rghuc + "Speakingevil/shufflewords/main/Assets/ShufflewordsScript.cs", pad: p, cap: true },
+    { mod: "Solitaire Cipher", id: "solitaireCipher", url: rghuc + "obachs971/SolitaireCipher/main/Assets/solitaireCipher.cs", pad: p, cap: true },
+    { mod: "Spelling Buzzed", id: "SpellingBuzzed", url: rghuc + "KtaneModules/ktane-spelling-buzzed-alex-chew/refs/heads/master/Assets/SpellingBuzzed/Resources/words.txt", pad: "|*|", cap: true },
+    { mod: "Touch Transmission", id: "touchTransmission", url: rghuc + "tandyCake/KTaNETouchTransmission/main/TouchTransmission/Assets/wordList.cs", pad: p, cap: false },
+    { mod: "Transmission Transposition", id: "transmissionTransposition", url: rghuc + "tandyCake/KTaNETransmissionTranslation/master/KTaNEMorseAnagrams/Assets/wordList.cs", pad: p, cap: true }, 
+    { mod: "Ultimate Cipher", id: "ultimateCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Unfair's Forgotten Ciphers", id: "unfairsForgottenCiphers", url: rghuc + "VFlyer/UnfairsRevenge/master/Assets/Scripts/UnfairsRevengeHandlers/Extreme%20Revenge%20Scripts/CipherMachineData.cs", pad: p, cap: true },
+    { mod: "Vigilant Psycho", id: "vigilantPsycho", url: rghuc + "VFlyer/vigilant-psycho/main/Assets/Wordlist.cs", pad: p, cap: true },
+    { mod: "Violet Cipher", id: "violetCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "White Cipher", id: "whiteCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Word Scramble", id: "WordScrambleModule", url: rghuc + "timtmok/ktanemod-anagrams/master/Assets/Scripts/WordScrambleModule.cs", pad: p, cap: false },
+    { mod: "Wordle", id: "Wordle", url: rghuc + "Blananas2/blananas2.github.io/main/js/wordle.txt", pad: s, cap: false }, //technically will require manual updating, however i do not want to fetch twice
+    { mod: "Words", id: "Words", url: rghuc + "Fartlicker777/Trivia-Murder-Party/master/Trivia%20Murder%20Party/Assets/Modules/Words/AllWordList.cs", pad: s, cap: true },
+    { mod: "XO", id: "xo", url: rghuc + "vitzlo/KTaNE-XO/main/Assets/xoScript.cs", pad: p, cap: true },
+    { mod: "Yellow Cipher", id: "yellowCipher", url: ultimateSource, pad: p, cap: true },
+    { mod: "Yellow Huffman Cipher", id: "YellowHuffmanCipherModule", url: compressionSource, pad: p, cap: true },
 ];
 
 function findWord (mdl, wrd) {
@@ -118,9 +120,9 @@ function findWord (mdl, wrd) {
 }
 
 //exception consts
-const butNot = " is in the word list for *,<br>but cannot be the answer";
-const isNot = " is not in the word list for *";
-const isIn = " is in the word list for *";
+const butNot = " is in the wordlist for *,<br>but cannot be the answer";
+const isNot = " is not in the wordlist for *";
+const isIn = " is in the wordlist for *";
 
 const exceptionData = [
     { mod: "3x3 Yellow Cipher", eqlLength: 6 },
@@ -215,14 +217,14 @@ function inWordListObj (word, data, mod) {
         if (exc.hasOwnProperty("excText")) {
             notQuite = true;
         } else {
-            return { text: (wordInAllCaps + " is not in the word list for " + mod), color: "crimson" };
+            return { text: (wordInAllCaps + " is not in the wordlist for " + mod), color: "crimson" };
         }
     }
     if (exc.hasOwnProperty("minMaxLength") && (wordInAllCaps.length < exc.minMaxLength[0] || wordInAllCaps.length > exc.minMaxLength[1])) { //ditto
         if (exc.hasOwnProperty("excText")) {
             notQuite = true;
         } else {
-            return { text: (wordInAllCaps + " is not in the word list for " + mod), color: "crimson" };
+            return { text: (wordInAllCaps + " is not in the wordlist for " + mod), color: "crimson" };
         }
     }
 
@@ -237,16 +239,16 @@ function inWordListObj (word, data, mod) {
                 return { text: (wordInAllCaps + exc.splitSpec[1][d].replace("*", mod)), color: exc.splitSpec[2][d] };
             }
         }
-        return { text: (wordInAllCaps + " is not in the word list for " + mod), color: "crimson" };
+        return { text: (wordInAllCaps + " is not in the wordlist for " + mod), color: "crimson" };
     }
 
     if (data.includes(word)) {
         if (notQuite) {
             return { text: (wordInAllCaps + exc.excText.replace("*", mod)), color: "gold" };
         } else {
-            return { text: (wordInAllCaps + " is in the word list for " + mod), color: "forestgreen" };
+            return { text: (wordInAllCaps + " is in the wordlist for " + mod), color: "forestgreen" };
         }
     } else {
-        return { text: (wordInAllCaps + " is not in the word list for " + mod), color: "crimson" };
+        return { text: (wordInAllCaps + " is not in the wordlist for " + mod), color: "crimson" };
     }
 }
