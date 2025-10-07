@@ -79,6 +79,7 @@ const moduleData = [
     { mod: "Spelling Buzzed", id: "SpellingBuzzed", url: rghuc + "KtaneModules/ktane-spelling-buzzed-alex-chew/refs/heads/master/Assets/SpellingBuzzed/Resources/words.txt", pad: "|*|", cap: true },
     { mod: "Touch Transmission", id: "touchTransmission", url: rghuc + "tandyCake/KTaNETouchTransmission/main/TouchTransmission/Assets/wordList.cs", pad: p, cap: false },
     { mod: "Transmission Transposition", id: "transmissionTransposition", url: rghuc + "tandyCake/KTaNETransmissionTranslation/master/KTaNEMorseAnagrams/Assets/wordList.cs", pad: p, cap: true }, 
+    { mod: "Twodoku", id: "TwodokuModule", url: rghuc + "Timwi/KtaneTwodoku/refs/heads/master/Lib/Data.cs", pad: p, cap: true },
     { mod: "Ultimate Cipher", id: "ultimateCipher", url: ultimateSource, pad: p, cap: true },
     { mod: "Unfair's Forgotten Ciphers", id: "unfairsForgottenCiphers", url: rghuc + "VFlyer/UnfairsRevenge/master/Assets/Scripts/UnfairsRevengeHandlers/Extreme%20Revenge%20Scripts/CipherMachineData.cs", pad: p, cap: true },
     { mod: "Vigilant Psycho", id: "vigilantPsycho", url: rghuc + "VFlyer/vigilant-psycho/main/Assets/Wordlist.cs", pad: p, cap: true },
