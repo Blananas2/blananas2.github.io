@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>Colored Squares — Keep Talking and Nobody Explodes Module</title>
+    <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/ktane-utils.js"></script>
+    <script src="js/ruleseed.js"></script>
+    <script>
+        let rules = [];
+
+        function setRules(rnd)
+        {
+            let candidates = [ "Blue", "Column", "Red", "Yellow", "Row", "Green", "Magenta" ];
+            let rows = document.getElementsByClassName('rule-row');
+            for (let i = 0; i < 15; i++)
+            {
+                if (i === 14)
+                    candidates = [ "Column", "Row", "Column", "Row", "Column", "Row", "Column" ];
+                else
+                    rnd.shuffleFisherYates(candidates);
+                let tds = rows[i].getElementsByClassName('rule');
+                for (let j = 0; j < tds.length; j++)
+                    tds[j].innerText = candidates[j];
+            }
+            setLinks(`#${rnd.seed}`);
+        }
+
+        function setDefaultRules()
+        {
+            let list = document.getElementsByClassName('rule');
+            for (let i = 0; i < list.length; i++)
+                list[i].innerText = list[i].getAttribute('data-original');
+            setLinks('');
+        }
+
+        function setLinks(hash)
+        {
+            document.querySelectorAll('.link > a').forEach(lnk => {
+                lnk.setAttribute('href', /^(.*?)(#.*)?$/.exec(lnk.getAttribute('href'))[1] + hash);
+            });
+        }
+    </script>
+    <style>
+        .colored-squares {
+            font-size: 10pt;
+        }
+        span.emphasized {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="page page-bg-04">
+            <div class="page-header">
+                <span class="page-header-doc-title">Keep Talking and Nobody Explodes Mod</span>
+                <span class="page-header-section-title">Colored Squares</span>
+            </div>
+            <div class="page-content">
+                <img class="diagram" src="img/Component/Colored Squares.svg">
+                <h2>On the Subject of Colored Squares</h2>
+                <p class="flavour-text">There is order in chaos. A pattern in the colors. Find it, and all will become clear.</p>
+                
+                <ul>
+                    <li>Press the squares in the correct group to progress to the next stage.</li>
+                    <li>Turn all squares white to disarm the module.</li>
+                    <li>To begin, press the color group containing the fewest squares.</li>
+                    <li>
+                        Then, use the table below to determine the next group to press.
+                        <ul>
+                            <li>To press a 'color group', press <span class="emphasized">every</span> square of that color.</li>
+                            <li>To press a 'row group', press <span class="emphasized">every</span> non-white square in the topmost row that isn't completely white.</li>
+                            <li>To press a 'column group', press <span class="emphasized">every</span> non-white square in the leftmost column that isn't completely white.</li>
+                        </ul>
+                    </li>
+                    <li>Pressing a correct square causes it to turn white. All other squares may change color each stage.</li>
+                    <li>Pressing an incorrect square results in a strike and resets all squares (including white ones).</li>
+                </ul>
+
+                <table class="colored-squares">
+                    <tr>
+                        <th rowspan="2">Currently White Squares</th>
+                        <th colspan="7">Previous Group of Squares Pressed</th>
+                    </tr>
+                    <tr><th>Red</th><th>Blue</th><th>Green</th><th>Yellow</th><th>Magenta</th><th>Row</th><th>Column</th></tr>
+                    <tr class='rule-row'><th>1</th><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Magenta'>Magenta</td></tr>
+                    <tr class='rule-row'><th>2</th><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Yellow'>Yellow</td></tr>
+                    <tr class='rule-row'><th>3</th><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Column'>Column</td></tr>
+                    <tr class='rule-row'><th>4</th><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Magenta'>Magenta</td></tr>
+                    <tr class='rule-row'><th>5</th><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Green'>Green</td></tr>
+                    <tr class='rule-row'><th>6</th><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Row'>Row</td></tr>
+                    <tr class='rule-row'><th>7</th><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Red'>Red</td></tr>
+                    <tr class='rule-row'><th>8</th><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Row'>Row</td></tr>
+                    <tr class='rule-row'><th>9</th><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Blue'>Blue</td></tr>
+                    <tr class='rule-row'><th>10</th><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Yellow'>Yellow</td></tr>
+                    <tr class='rule-row'><th>11</th><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Blue'>Blue</td></tr>
+                    <tr class='rule-row'><th>12</th><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Green'>Green</td></tr>
+                    <tr class='rule-row'><th>13</th><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Red'>Red</td></tr>
+                    <tr class='rule-row'><th>14</th><td class='rule' data-original='Red'>Red</td><td class='rule' data-original='Blue'>Blue</td><td class='rule' data-original='Magenta'>Magenta</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Green'>Green</td><td class='rule' data-original='Yellow'>Yellow</td><td class='rule' data-original='Column'>Column</td></tr>
+                    <tr class='rule-row'><th>15</th><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Column'>Column</td><td class='rule' data-original='Row'>Row</td><td class='rule' data-original='Column'>Column</td></tr>
+                </table>
+            </div>
+            <div class="page-footer relative-footer">Page 18 of 47</div>
+        </div>
+    </div>
+</body>
+</html>
