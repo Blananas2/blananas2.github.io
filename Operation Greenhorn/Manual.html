@@ -13,6 +13,13 @@
         .page-footer::after { content: ' of 47'; }
 
         .dark img { filter: invert(90%); }
+        
+        .dark a, a {
+            color: inherit;
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+        /* * * I tried having another class which can un-underline already underlined hovered text but it never worked. * * */
 
         /* Cover */
         .cover {
@@ -106,12 +113,6 @@
             margin-bottom: 1px;
         }
     </style>
-    <link rel="stylesheet" type="text/css" href="css/Modules-Merged/Piano Keys.css">
-    <link rel="stylesheet" type="text/css" href="css/Modules-Merged/The Bulb.css">
-    <link rel="stylesheet" type="text/css" href="css/Modules-Merged/Word Search.css">
-    <script>
-
-    </script>
 </head>
 <body>
     <div class="section">
@@ -150,52 +151,51 @@
             </div>
             <div class="page-content">
                 <h2>Table of Contents</h2>
-                <!-- TODO (in final manual): Make entries clickable, but don't make them look like links, ask Shaun about preference -->
-                <div class="toc-entry toc-first"><p class="toc-start">Quick Module Reference</p><p class="toc-dots"></p><p class="toc-end">4-5</p></div>
-                <div class="toc-entry"><p class="toc-start">Defusing Bombs</p><p class="toc-dots"></p><p class="toc-end">6</p></div>
+                <div class="toc-entry toc-first"><p class="toc-start"><a href="#quickModuleReference">Quick Module Reference</a></p><p class="toc-dots"></p><p class="toc-end">4-5</p></div>
+                <div class="toc-entry"><p class="toc-start"><a href="#defusingBombs">Defusing Bombs</a></p><p class="toc-dots"></p><p class="toc-end">6</p></div>
                 
-                <h3 class="toc-section"><u>Section 1: Modules</u> (pg7)</h3>
-                <div class="toc-entry toc-first"><p class="toc-mod">Wires</p><p class="toc-dots"></p><p class="toc-end">8</p></div>
-                <div class="toc-entry"><p class="toc-mod">The Button</p><p class="toc-dots"></p><p class="toc-end">9</p></div>
-                <div class="toc-entry"><p class="toc-mod">Keypad</p><p class="toc-dots"></p><p class="toc-end">10</p></div>
-                <div class="toc-entry"><p class="toc-mod">Simon Says</p><p class="toc-dots"></p><p class="toc-end">11</p></div>
-                <div class="toc-entry"><p class="toc-mod">Who’s On First</p><p class="toc-dots"></p><p class="toc-end">12-13</p></div>
-                <div class="toc-entry"><p class="toc-mod">Memory</p><p class="toc-dots"></p><p class="toc-end">14</p></div>
-                <div class="toc-entry"><p class="toc-mod">Emoji Math</p><p class="toc-dots"></p><p class="toc-end">15</p></div>
-                <div class="toc-entry"><p class="toc-mod">The Bulb</p><p class="toc-dots"></p><p class="toc-end">16-17</p></div>
-                <div class="toc-entry"><p class="toc-mod">Colored Squares</p><p class="toc-dots"></p><p class="toc-end">18</p></div>
-                <div class="toc-entry"><p class="toc-mod">Morse Code</p><p class="toc-dots"></p><p class="toc-end">19</p></div>
-                <div class="toc-entry"><p class="toc-mod">Piano Keys</p><p class="toc-dots"></p><p class="toc-end">20-21</p></div>
-                <div class="toc-entry"><p class="toc-mod">Complicated Wires</p><p class="toc-dots"></p><p class="toc-end">22</p></div>
-                <div class="toc-entry"><p class="toc-mod">Wire Sequence</p><p class="toc-dots"></p><p class="toc-end">23</p></div>
-                <div class="toc-entry"><p class="toc-mod">Connection Check</p><p class="toc-dots"></p><p class="toc-end">24-25</p></div>
-                <div class="toc-entry"><p class="toc-mod">Colour Flash</p><p class="toc-dots"></p><p class="toc-end">26-27</p></div>
-                <div class="toc-entry"><p class="toc-mod">Switches</p><p class="toc-dots"></p><p class="toc-end">28</p></div>
-                <div class="toc-entry"><p class="toc-mod">Blind Alley</p><p class="toc-dots"></p><p class="toc-end">29</p></div>
-                <div class="toc-entry"><p class="toc-mod">Crazy Talk</p><p class="toc-dots"></p><p class="toc-end">30-31</p></div>
-                <div class="toc-entry"><p class="toc-mod">Word Search</p><p class="toc-dots"></p><p class="toc-end">32</p></div>
-                <div class="toc-entry"><p class="toc-mod">Password</p><p class="toc-dots"></p><p class="toc-end">33</p></div>
-                <div class="toc-entry"><p class="toc-mod">Wire Placement</p><p class="toc-dots"></p><p class="toc-end">34</p></div>
-                <div class="toc-entry"><p class="toc-mod">Maze</p><p class="toc-dots"></p><p class="toc-end">35</p></div>
-                <div class="toc-entry"><p class="toc-mod">Shape Shift</p><p class="toc-dots"></p><p class="toc-end">36</p></div>
+                <h3 class="toc-section"><u><a href="#sectionModules">Section 1: Modules</a></u> (pg7)</h3>
+                <div class="toc-entry toc-first"><p class="toc-mod"><a href="#Wires">Wires</a></p><p class="toc-dots"></p><p class="toc-end">8</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#TheButton">The Button</a></p><p class="toc-dots"></p><p class="toc-end">9</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#Keypad">Keypad</a></p><p class="toc-dots"></p><p class="toc-end">10</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#SimonSays">Simon Says</a></p><p class="toc-dots"></p><p class="toc-end">11</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#WhosOnFirst">Who’s On First</a></p><p class="toc-dots"></p><p class="toc-end">12-13</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#Memory">Memory</a></p><p class="toc-dots"></p><p class="toc-end">14</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#EmojiMath">Emoji Math</a></p><p class="toc-dots"></p><p class="toc-end">15</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#TheBulb">The Bulb</a></p><p class="toc-dots"></p><p class="toc-end">16-17</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#ColoredSquares">Colored Squares</a></p><p class="toc-dots"></p><p class="toc-end">18</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#MorseCode">Morse Code</a></p><p class="toc-dots"></p><p class="toc-end">19</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#PianoKeys">Piano Keys</a></p><p class="toc-dots"></p><p class="toc-end">20-21</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#ComplicatedWires">Complicated Wires</a></p><p class="toc-dots"></p><p class="toc-end">22</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#WireSequence">Wire Sequence</a></p><p class="toc-dots"></p><p class="toc-end">23</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#ConnectionCheck">Connection Check</a></p><p class="toc-dots"></p><p class="toc-end">24-25</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#ColourFlash">Colour Flash</a></p><p class="toc-dots"></p><p class="toc-end">26-27</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#Switches">Switches</a></p><p class="toc-dots"></p><p class="toc-end">28</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#BlindAlley">Blind Alley</a></p><p class="toc-dots"></p><p class="toc-end">29</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#CrazyTalk">Crazy Talk</a></p><p class="toc-dots"></p><p class="toc-end">30-31</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#WordSearch">Word Search</a></p><p class="toc-dots"></p><p class="toc-end">32</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#Password">Password</a></p><p class="toc-dots"></p><p class="toc-end">33</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#WirePlacement">Wire Placement</a></p><p class="toc-dots"></p><p class="toc-end">34</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#Maze">Maze</a></p><p class="toc-dots"></p><p class="toc-end">35</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#ShapeShift">Shape Shift</a></p><p class="toc-dots"></p><p class="toc-end">36</p></div>
             
-                <h3 class="toc-section"><u>Section 2: Needies</u> (pg37)</h3>
-                <div class="toc-entry toc-first"><p class="toc-mod">Venting Gas</p><p class="toc-dots"></p><p class="toc-end">38</p></div>
-                <div class="toc-entry"><p class="toc-mod">Capacitor Discharge</p><p class="toc-dots"></p><p class="toc-end">39</p></div>
-                <div class="toc-entry"><p class="toc-mod">Random Number Generator</p><p class="toc-dots"></p><p class="toc-end">40</p></div>
-                <div class="toc-entry"><p class="toc-mod">Knob</p><p class="toc-dots"></p><p class="toc-end">41</p></div>
-                <div class="toc-entry"><p class="toc-mod">Shape Memory</p><p class="toc-dots"></p><p class="toc-end">42</p></div>
+                <h3 class="toc-section"><u><a href="#sectionNeedies">Section 2: Needies</a></u> (pg37)</h3>
+                <div class="toc-entry toc-first"><p class="toc-mod"><a href="#VentingGas">Venting Gas</a></p><p class="toc-dots"></p><p class="toc-end">38</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#CapacitorDischarge">Capacitor Discharge</a></p><p class="toc-dots"></p><p class="toc-end">39</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#RandomNumberGenerator">Random Number Generator</a></p><p class="toc-dots"></p><p class="toc-end">40</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#Knob">Knob</a></p><p class="toc-dots"></p><p class="toc-end">41</p></div>
+                <div class="toc-entry"><p class="toc-mod"><a href="#ShapeMemory">Shape Memory</a></p><p class="toc-dots"></p><p class="toc-end">42</p></div>
                 
-                <h3 class="toc-section"><u>Section X: Appendices</u> (pg43)</h3>
-                <div class="toc-entry toc-first"><p class="toc-apx">A: Indicator </p><p class="toc-dots"></p><p class="toc-end">44</p></div>
-                <div class="toc-entry"><p class="toc-apx">B: Battery </p><p class="toc-dots"></p><p class="toc-end">45</p></div>
-                <div class="toc-entry"><p class="toc-apx">C: Ports </p><p class="toc-dots"></p><p class="toc-end">46</p></div>
-                <div class="toc-entry"><p class="toc-apx">X: Serial Number </p><p class="toc-dots"></p><p class="toc-end">47</p></div>
+                <h3 class="toc-section"><u><a href="#sectionAppendices">Section X: Appendices</a></u> (pg43)</h3>
+                <div class="toc-entry toc-first"><p class="toc-apx"><a href="#Indicators">A: Indicator</a> </p><p class="toc-dots"></p><p class="toc-end">44</p></div>
+                <div class="toc-entry"><p class="toc-apx"><a href="#Batteries">B: Battery</a> </p><p class="toc-dots"></p><p class="toc-end">45</p></div>
+                <div class="toc-entry"><p class="toc-apx"><a href="#Ports">C: Ports</a> </p><p class="toc-dots"></p><p class="toc-end">46</p></div>
+                <div class="toc-entry"><p class="toc-apx"><a href="#SerialNumber">X: Serial Number</a> </p><p class="toc-dots"></p><p class="toc-end">47</p></div>
             </div>
             <div class="page-footer relative-footer">3</div>
         </div>
 
-        <div class="page page-bg-04">
+        <div id="quickModuleReference" class="page page-bg-04">
             <div class="page-header">
                 <span class="page-header-doc-title">Keep Talking and Nobody Explodes Modded Manual</span>
                 <span class="page-header-section-title">Operation Greenhorn</span>
@@ -205,30 +205,29 @@
                 <p>These pages contain diagrams of all module’s appearances for quick referencing. (The diagrams are also seen at the top right of every manual’s first page.)</p>
                 <h4 class="centered">Section 1: Modules</h4>
                 <!-- There's probably a way to make separating rows not required... -->
-                <!-- TODO (in final manual): Ditto previous TODO -->
                 <div class="module-row">
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Wires.svg"><p class="centered">Wires<br>(pg8)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/The Button.svg"><p class="centered">The Button<br>(pg9)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Keypad.svg"><p class="centered">Keypad<br>(pg10)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Simon Says.svg"><p class="centered">Simon Says<br>(pg11)</p></div>
+                    <div class="qmr-div"><a href="#Wires"><img class="qmr-mod centered-img" src="img/Component/Wires.svg"><p class="centered">Wires</a><br>(pg8)</p></div>
+                    <div class="qmr-div"><a href="#TheButton"><img class="qmr-mod centered-img" src="img/Component/The Button.svg"><p class="centered">The Button</a><br>(pg9)</p></div>
+                    <div class="qmr-div"><a href="#Keypad"><img class="qmr-mod centered-img" src="img/Component/Keypad.svg"><p class="centered">Keypad</a><br>(pg10)</p></div>
+                    <div class="qmr-div"><a href="#SimonSays"><img class="qmr-mod centered-img" src="img/Component/Simon Says.svg"><p class="centered">Simon Says</a><br>(pg11)</p></div>
                 </div>
                 <div class="module-row">
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Who's on First.svg"><p class="centered">Who’s on First<br>(pg12-13)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Memory.svg"><p class="centered">Memory<br>(pg14)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Emoji Math.svg"><p class="centered">Emoji Math<br>(pg15)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/The Bulb.svg"><p class="centered">The Bulb<br>(pg16-17)</p></div>
+                    <div class="qmr-div"><a href="#WhosOnFirst"><img class="qmr-mod centered-img" src="img/Component/Who's on First.svg"><p class="centered">Who’s on First</a><br>(pg12-13)</p></div>
+                    <div class="qmr-div"><a href="#Memory"><img class="qmr-mod centered-img" src="img/Component/Memory.svg"><p class="centered">Memory</a><br>(pg14)</p></div>
+                    <div class="qmr-div"><a href="#EmojiMath"><img class="qmr-mod centered-img" src="img/Component/Emoji Math.svg"><p class="centered">Emoji Math</a><br>(pg15)</p></div>
+                    <div class="qmr-div"><a href="#TheBulb"><img class="qmr-mod centered-img" src="img/Component/The Bulb.svg"><p class="centered">The Bulb</a><br>(pg16-17)</p></div>
                 </div>
                 <div class="module-row">
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Colored Squares.svg"><p class="centered">Colored Squares<br>(pg18)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Morse Code.svg"><p class="centered">Morse Code<br>(pg19)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Piano Keys.svg"><p class="centered">Piano Keys<br>(pg20-21)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Complicated Wires.svg"><p class="centered">Complicated Wires<br>(pg22)</p></div>
+                    <div class="qmr-div"><a href="#ColoredSquares"><img class="qmr-mod centered-img" src="img/Component/Colored Squares.svg"><p class="centered">Colored Squares</a><br>(pg18)</p></div>
+                    <div class="qmr-div"><a href="#MorseCode"><img class="qmr-mod centered-img" src="img/Component/Morse Code.svg"><p class="centered">Morse Code</a><br>(pg19)</p></div>
+                    <div class="qmr-div"><a href="#PianoKeys"><img class="qmr-mod centered-img" src="img/Component/Piano Keys.svg"><p class="centered">Piano Keys</a><br>(pg20-21)</p></div>
+                    <div class="qmr-div"><a href="#ComplicatedWires"><img class="qmr-mod centered-img" src="img/Component/Complicated Wires.svg"><p class="centered">Complicated Wires</a><br>(pg22)</p></div>
                 </div>
                 <div class="module-row">
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Wire Sequence.svg"><p class="centered">Wire Sequence<br>(pg23)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Connection Check.svg"><p class="centered">Connection Check<br>(pg24-25)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Colour Flash.svg"><p class="centered">Colour Flash<br>(pg26-27)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Switches.svg"><p class="centered">Switches<br>(pg28)</p></div>
+                    <div class="qmr-div"><a href="#WireSequence"><img class="qmr-mod centered-img" src="img/Component/Wire Sequence.svg"><p class="centered">Wire Sequence</a><br>(pg23)</p></div>
+                    <div class="qmr-div"><a href="#ConnectionCheck"><img class="qmr-mod centered-img" src="img/Component/Connection Check.svg"><p class="centered">Connection Check</a><br>(pg24-25)</p></div>
+                    <div class="qmr-div"><a href="#ColourFlash"><img class="qmr-mod centered-img" src="img/Component/Colour Flash.svg"><p class="centered">Colour Flash</a><br>(pg26-27)</p></div>
+                    <div class="qmr-div"><a href="#Switches"><img class="qmr-mod centered-img" src="img/Component/Switches.svg"><p class="centered">Switches</a><br>(pg28)</p></div>
                 </div>
                 <p><i>Continued on the next page...</i></p>
             </div>
@@ -243,31 +242,31 @@
             <div class="page-content">
                 <p class="centered"><i>Section 1 (cont)</i></p>
                 <div class="module-row">
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Component.svg"><p class="centered">Blind Alley<br>(pg29)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Crazy Talk.svg"><p class="centered">Crazy Talk<br>(pg30-31)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Word Search.svg"><p class="centered">Word Search<br>(pg32)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Password.svg"><p class="centered">Password<br>(pg33)</p></div>
+                    <div class="qmr-div"><a href="#BlindAlley"><img class="qmr-mod centered-img" src="img/Component/Component.svg"><p class="centered">Blind Alley</a><br>(pg29)</p></div>
+                    <div class="qmr-div"><a href="#CrazyTalk"><img class="qmr-mod centered-img" src="img/Component/Crazy Talk.svg"><p class="centered">Crazy Talk</a><br>(pg30-31)</p></div>
+                    <div class="qmr-div"><a href="#WordSearch"><img class="qmr-mod centered-img" src="img/Component/Word Search.svg"><p class="centered">Word Search</a><br>(pg32)</p></div>
+                    <div class="qmr-div"><a href="#Password"><img class="qmr-mod centered-img" src="img/Component/Password.svg"><p class="centered">Password</a><br>(pg33)</p></div>
                 </div>
                 <div class="module-row">
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Wire Placement.svg"><p class="centered">Wire Placement<br>(pg34)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Maze.svg"><p class="centered">Maze<br>(pg35)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Shape Shift.svg"><p class="centered">Shape Shift<br>(pg36)</p></div>
+                    <div class="qmr-div"><a href="#WirePlacement"><img class="qmr-mod centered-img" src="img/Component/Wire Placement.svg"><p class="centered">Wire Placement</a><br>(pg34)</p></div>
+                    <div class="qmr-div"><a href="#Maze"><img class="qmr-mod centered-img" src="img/Component/Maze.svg"><p class="centered">Maze</a><br>(pg35)</p></div>
+                    <div class="qmr-div"><a href="#ShapeShift"><img class="qmr-mod centered-img" src="img/Component/Shape Shift.svg"><p class="centered">Shape Shift</a><br>(pg36)</p></div>
                 </div>
                 <h4 class="centered">Section 2: Needies</h4>
                 <div class="module-row">
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Venting Gas.svg"><p class="centered">Venting Gas<br>(pg38)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Capacitor Discharge.svg"><p class="centered">Capacitor Discharge<br>(pg39)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Random Number Generator.svg"><p class="centered">Random Number Generator<br>(pg40)</p></div>
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Knob.svg"><p class="centered">Knob<br>(pg41)</p></div>
+                    <div class="qmr-div"><a href="#VentingGas"><img class="qmr-mod centered-img" src="img/Component/Venting Gas.svg"><p class="centered">Venting Gas</a><br>(pg38)</p></div>
+                    <div class="qmr-div"><a href="#CapacitorDischarge"><img class="qmr-mod centered-img" src="img/Component/Capacitor Discharge.svg"><p class="centered">Capacitor Discharge</a><br>(pg39)</p></div>
+                    <div class="qmr-div"><a href="#RandomNumberGenerator"><img class="qmr-mod centered-img" src="img/Component/Random Number Generator.svg"><p class="centered">Random Number Generator</a><br>(pg40)</p></div>
+                    <div class="qmr-div"><a href="#Knob"><img class="qmr-mod centered-img" src="img/Component/Knob.svg"><p class="centered">Knob</a><br>(pg41)</p></div>
                 </div>
                 <div class="module-row">
-                    <div class="qmr-div"><img class="qmr-mod centered-img" src="img/Component/Shape Memory.svg"><p class="centered">Shape Memory<br>(pg42)</p></div>
+                    <div class="qmr-div"><a href="#ShapeMemory"><img class="qmr-mod centered-img" src="img/Component/Shape Memory.svg"><p class="centered">Shape Memory</a><br>(pg42)</p></div>
                 </div>
             </div>
             <div class="page-footer relative-footer">5</div>
         </div>
 
-        <div class="page page-bg-06">
+        <div id="defusingBombs" class="page page-bg-06">
             <div class="page-header">
                 <span class="page-header-doc-title">Keep Talking and Nobody Explodes Modded Manual</span>
                 <span class="page-header-section-title">Operation Greenhorn</span>
@@ -334,7 +333,7 @@
             <div class="page-footer relative-footer">6</div>
         </div>
 
-        <div class="page page-bg-07">
+        <div id="sectionModules" class="page page-bg-07">
             <div class="page-header">
                 <span class="page-header-doc-title">Keep Talking and Nobody Explodes Modded Manual</span>
                 <span class="page-header-section-title">Operation Greenhorn</span>
@@ -356,53 +355,53 @@
             <div class="page-footer relative-footer">7</div>
         </div>
 
-        <iframe src="Wires.html" style="height: 1090px;"></iframe>
+        <iframe id="Wires" src="Wires.html" style="height: 1090px;"></iframe>
 
-        <iframe src="The Button.html" style="height: 1090px;"></iframe>
+        <iframe id="TheButton" src="The Button.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Keypad.html" style="height: 1090px;"></iframe>
+        <iframe id="Keypad" src="Keypad.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Simon Says.html" style="height: 1090px;"></iframe>
+        <iframe id="SimonSays" src="Simon Says.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Who's on First.html" style="height: 2164px;"></iframe>
+        <iframe id="WhosOnFirst" src="Who's on First.html" style="height: 2164px;"></iframe>
 
-        <iframe src="Memory.html" style="height: 1090px;"></iframe>
+        <iframe id="Memory" src="Memory.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Emoji Math.html" style="height: 1090px;"></iframe>
+        <iframe id="EmojiMath" src="Emoji Math.html" style="height: 1090px;"></iframe>
 
-        <iframe src="The Bulb.html" style="height: 2205px;"></iframe>
+        <iframe id="TheBulb" src="The Bulb.html" style="height: 2205px;"></iframe>
 
-        <iframe src="Colored Squares.html" style="height: 1090px;"></iframe>
+        <iframe id="ColoredSquares" src="Colored Squares.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Morse Code.html" style="height: 1090px;"></iframe>
+        <iframe id="MorseCode" src="Morse Code.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Piano Keys.html" style="height: 2164px;"></iframe>
+        <iframe id="PianoKeys" src="Piano Keys.html" style="height: 2164px;"></iframe>
 
-        <iframe src="Complicated Wires.html" style="height: 1090px;"></iframe>
+        <iframe id="ComplicatedWires" src="Complicated Wires.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Wire Sequence.html" style="height: 1090px;"></iframe>
+        <iframe id="WireSequence" src="Wire Sequence.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Connection Check.html" style="height: 2220.12px;"></iframe>
+        <iframe id="ConnectionCheck" src="Connection Check.html" style="height: 2220.12px;"></iframe>
 
-        <iframe src="Colour Flash.html" style="height: 2164px;"></iframe>
+        <iframe id="ColourFlash" src="Colour Flash.html" style="height: 2164px;"></iframe>
 
-        <iframe src="Switches.html" style="height: 1090px;"></iframe>
+        <iframe id="Switches" src="Switches.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Blind Alley.html" style="height: 1090px;"></iframe>
+        <iframe id="BlindAlley" src="Blind Alley.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Crazy Talk.html" style="height: 2164px;"></iframe>
+        <iframe id="CrazyTalk" src="Crazy Talk.html" style="height: 2164px;"></iframe>
 
-        <iframe src="Word Search.html" style="height: 1090px;"></iframe>
+        <iframe id="WordSearch" src="Word Search.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Password.html" style="height: 1090px;"></iframe>
+        <iframe id="Password" src="Password.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Wire Placement.html" style="height: 1090px;"></iframe>
+        <iframe id="WirePlacement" src="Wire Placement.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Maze.html" style="height: 1090px;"></iframe>
+        <iframe id="Maze" src="Maze.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Shape Shift.html" style="height: 1146.03px; margin-bottom: -16px;"></iframe>
+        <iframe id="ShapeShift" src="Shape Shift.html" style="height: 1146.03px; margin-bottom: -16px;"></iframe>
 
-        <div class="page page-bg-01">
+        <div id="sectionNeedies" class="page page-bg-01">
             <div class="page-header">
                 <span class="page-header-doc-title">Keep Talking and Nobody Explodes Modded Manual</span>
                 <span class="page-header-section-title">Operation Greenhorn</span>
@@ -432,17 +431,17 @@
             <div class="page-footer relative-footer">37</div>
         </div>
 
-        <iframe src="Venting Gas.html" style="height: 1090px;"></iframe>
+        <iframe id="VentingGas" src="Venting Gas.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Capacitor Discharge.html" style="height: 1090px;"></iframe>
+        <iframe id="CapacitorDischarge" src="Capacitor Discharge.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Random Number Generator.html" style="height: 1090px;"></iframe>
+        <iframe id="RandomNumberGenerator" src="Random Number Generator.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Knob.html" style="height: 1090px;"></iframe>
+        <iframe id="Knob" src="Knob.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Shape Memory.html" style="height: 1090px; margin-bottom: -16px;"></iframe>
+        <iframe id="ShapeMemory" src="Shape Memory.html" style="height: 1090px; margin-bottom: -16px;"></iframe>
 
-        <div class="page page-bg-02">
+        <div id="sectionAppendices" class="page page-bg-02">
             <div class="page-header">
                 <span class="page-header-doc-title">Keep Talking and Nobody Explodes Modded Manual</span>
                 <span class="page-header-section-title">Operation Greenhorn</span>
@@ -462,13 +461,13 @@
             <div class="page-footer relative-footer">43</div>
         </div>
 
-        <iframe src="Indicators.html" style="height: 1090px;"></iframe>
+        <iframe id="Indicators" src="Indicators.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Batteries.html" style="height: 1090px;"></iframe>
+        <iframe id="Batteries" src="Batteries.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Ports.html" style="height: 1090px;"></iframe>
+        <iframe id="Ports" src="Ports.html" style="height: 1090px;"></iframe>
 
-        <iframe src="Serial Number.html" style="height: 1090px;"></iframe>
+        <iframe id="SerialNumber" src="Serial Number.html" style="height: 1090px;"></iframe>
     </div>
 </body>
 </html>
