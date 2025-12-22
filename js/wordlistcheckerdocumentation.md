@@ -20,7 +20,7 @@ Each object in this array consists of five properties, none of which can be omit
   - Wordlist Checker currently only has the ability to use _one_ URL, if the wordlist is split among two or more files, a file to use as an alternative should be provided within this repository instead so that the tool is able to function.
   - The `!` button on the site will open the page in a new tab, which is good because you doesn't send a fetch request just to ensure the URL is correct.
 - **`pad`** _(string)_ is the padding which the word by the user will be expected to be surrounded by within the source file, the `*` in this string is where the word will be placed.
-  - Like **`url`**, there's constants at the top of ***`wordlist.js`*** for the two most common paddings: **`p`** and **`s`** are the strings `"*"` and `,*,` respectively.
+  - Like **`url`**, there's constants at the top of ***`wordlist.js`*** for the two most common paddings: **`q`** and **`c`** are the strings `"*"` and `,*,` respectively.
   - In cases where the padding is different for words at the start or end of the wordlist, use **`exceptionData`** for ways to work around such problems and make sure these specific cases are tested _before_ submitting a pull request.
 - **`cap`** _(bool)_ specifies how the text within the file is capitalized, where `true` or `false` are uppercase or lowercase respectively.
   - In cases where the words within the wordlist are in mixed case, **`forceCap`** should be used within **`exceptionData`**. Set **`cap`** corresponding to the more frequent letter case.
@@ -38,7 +38,7 @@ Each object in this array can have an arbitrary number of properties, depending 
   - Just above **`exceptionData`**, there are a few constants for phrases commonly used for exception text, where `*` is replaced with the module name.
   - If this property is absent, it will say the word is not in the wordlist if triggered.
 - **`excColor`** _(string)_ specifies the color of the exception text.
-  - Use [named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color) for readability, ideally those already present in the file.
+  - Use [named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color) for readability, ideally those already present in the file. The site's preferred shades of green, yellow, and red are the **`g`**, **`y`**, and **`r`** constants respectively.
   - If this property is absent, the default color crimson is used if triggered.
 - **`eqlLength`** _(int)_ or **`minMaxLength`** _(array: [int, int])_ will trigger an exception if the given word's length is not the specified number or within the specified range (inclusive).
 - **`excWords`** _(array: strings)_ will trigger an exception if the given word is any of the words present in the array.
