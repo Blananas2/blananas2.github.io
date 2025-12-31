@@ -162,7 +162,7 @@ const exceptionData = [
     { mod: "Gray Cipher", eqlLength: 6, excText: butNot },
     { mod: "Green Cipher", eqlLength: 6, excText: butNot },
     { mod: "Indigo Cipher", eqlLength: 6, excText: butNot },
-    { mod: "Jailbreak", excWords: ["HELP", "VIEW", "SHOW", "ZOOM", "TILT", "KEEP", "TAKE", "MINE"], excText: isIn + ",<br>but is also a reserved Twitch Plays word", excColor: "cyan" },
+    { mod: "Jailbreak", excWords: ["HELP", "VIEW", "SHOW", "ZOOM", "TILT", "KEEP", "TAKE", "MINE", "MARK"], excText: isIn + ",<br>but is also a reserved Twitch Plays word", excColor: "cyan" },
     { mod: "Lempel-Ziv Cipher", befAftReplace: ["\n", "\""] },
     { mod: "Linked Wordle", splitSpec: ["ObscureWordList", [isIn, butNot], [g, y]] },
     { mod: "Maas Cipher", eqlLength: 4 },
