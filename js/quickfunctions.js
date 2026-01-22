@@ -2,7 +2,7 @@ let functionData = [
     {
         name: "Add times",
         urlq: "addtimes",
-        desc: "Calculates provided times added together.<br>Separate times with whitespace.<br>It will use the number of decimal points of precision after seconds based on the first time."
+        desc: "Calculates provided times added together.<br>Separate times with whitespace. Prepend with \"-\" to make a time negative.<br>It will use the number of decimal points of precision after seconds based on the first time."
     },
     {
         name: "Average times",
@@ -31,9 +31,7 @@ function runFunction(func, inpString) {
     switch (func) {
         case "Add times":
         case "Average times":
-            if (inpString.match("-")) {
-                return "Won't work with negatives."
-            } else if (inpString.match(/[^0-9:.\s]+/)) {
+            if (inpString.match(/[^0-9:.\s-]+/)) {
                 return "Remove strange characters."
             }
             return addtimes(inpString, func == "Average times");
@@ -90,6 +88,8 @@ function addtimes(times, avg) {
     let minutes = 0;
     let hours = 0;
     for (t = 0; t < splitInput.length; t++) {
+        let negative = splitInput[t][0] == "-";
+        if (negative) { splitInput[t] = splitInput[t].substring(1); }
         let splitTime = splitInput[t].split(".");
         if (splitTime.length == 1) { splitTime.push(0); }
         let prePoint = splitTime[0];
@@ -98,43 +98,34 @@ function addtimes(times, avg) {
         while (splitPrePoint.length < 3) {
             splitPrePoint.splice(0, 0, "0"); //INSERTS "0" string at index 0 (first int) and removing 0 (second int) elements
         }
-        decimals += Number.parseInt(postPoint);
-        seconds += Number.parseInt(splitPrePoint[2]); //i swear this is actually better than a for loop
-        minutes += Number.parseInt(splitPrePoint[1]);
-        hours += Number.parseInt(splitPrePoint[0]);
-        if (decimals >= precisionPow) {
-            seconds += (decimals / precisionPow)|0;
-            decimals %= precisionPow;
-        }
-        if (seconds >= 60) {
-            minutes += (seconds / 60)|0;
-            seconds %= 60;
-        }
-        if (minutes >= 60) {
-            hours += (minutes / 60)|0;
-            minutes %= 60;
-        }
+        decimals += Number.parseInt(postPoint) * (negative ? -1 : 1);
+        seconds += Number.parseInt(splitPrePoint[2]) * (negative ? -1 : 1);
+        minutes += Number.parseInt(splitPrePoint[1]) * (negative ? -1 : 1);
+        hours += Number.parseInt(splitPrePoint[0]) * (negative ? -1 : 1);
     }
+    let summed = ((hours * 3600 + minutes * 60 + seconds) * precisionPow + decimals);
     if (avg) {
-        let avged = (((hours * 3600 + minutes * 60 + seconds) * precisionPow + decimals) / splitInput.length)|0;
-        seconds = 0;
-        minutes = 0;
-        hours = 0;
-        while (avged >= 3600 * precisionPow) {
-            avged -= 3600 * precisionPow;
-            hours++;
-        }
-        while (avged >= 60 * precisionPow) {
-            avged -= 60 * precisionPow;
-            minutes++;
-        }
-        while (avged >= precisionPow) {
-            avged -= precisionPow;
-            seconds++;
-        }
-        decimals = avged;
+        summed = (summed / splitInput.length)|0;
     }
-    let line = hours + ":" + minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0') + "." + decimals.toString().padStart(precisionLevel, '0');
+    let resultNegative = summed < 0;
+    if (resultNegative) { summed *= -1; }
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    while (summed >= 3600 * precisionPow) {
+        summed -= 3600 * precisionPow;
+        hours++;
+    }
+    while (summed >= 60 * precisionPow) {
+        summed -= 60 * precisionPow;
+        minutes++;
+    }
+    while (summed >= precisionPow) {
+        summed -= precisionPow;
+        seconds++;
+    }
+    decimals = summed;
+    let line = (resultNegative ? "-" : "") + hours + ":" + minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0') + "." + decimals.toString().padStart(precisionLevel, '0');
     if (decimals == 0) { line = line.replace(/.0+$/, ""); }
     return line;
 }
