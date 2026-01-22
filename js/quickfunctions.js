@@ -7,7 +7,7 @@ let functionData = [
     {
         name: "Average times",
         urlq: "avgtimes",
-        desc: "Calculates the average of provided times.<br>Separate times with whitespace.<br>It will use the number of decimal points of precision after seconds based on the first time."
+        desc: "Calculates the average of provided times.<br>Separate times with whitespace. Prepend with \"-\" to make a time negative.<br>It will use the number of decimal points of precision after seconds based on the first time."
     },
     {
         name: "Base conversion",
