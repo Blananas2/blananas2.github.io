@@ -10,6 +10,8 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+//Developer Mode was removed to simplify the page for newcomers; all they would see is errors which is the last thing we want.
+
 let protocol = location.protocol;
 let currentScript = document.currentScript || (function() {
     let scripts = document.getElementsByTagName('script');
@@ -64,10 +66,6 @@ if (!new URLSearchParams(window.location.search).has("merger")) {
                     <h3>Dark Mode</h3>
                     <div><input type='checkbox' id='dark-mode-enabled'>&nbsp;<label for='dark-mode-enabled'>Enabled</label> (Alt-W)</div>
                 </div>
-                <div class='option-group'>
-                    <h3>Developer mode</h3>
-                    <div><input type='checkbox' id='developer-mode-enabled'>&nbsp;<label for='developer-mode-enabled'>Enabled</label> (Alt-P)</div>
-                </div>
             </div>`).appendTo("body");
 
             // DARK MODE
@@ -85,39 +83,6 @@ if (!new URLSearchParams(window.location.search).has("merger")) {
                 }
             }
             $('#dark-mode-enabled').click(updateDarkMode);
-            // DEVELOPER MODE: Highlight overflow, matching module name headers, only one flavour text.
-            function updateDeveloperMode()
-            {
-                if ($('#developer-mode-enabled').prop('checked'))
-                {
-                    $("body").addClass("developer-mode");
-                    const infoDiv = $("<div>").addClass("developer-mode-warning").append($("<h3>").text("DEVELOPER MODE (Alt-P)")).insertAfter($(".section"));
-                    const flavourTextCounts = document.getElementsByClassName("flavour-text").length;
-                    if (flavourTextCounts > 1) {
-                        $(".flavour-text").addClass("developer-mode-warning");
-                        $("<p>").text("There is more than one element with the \"flavour-text\" class. Use the \"comment\" class for all but the actual flavour text immediately following the title.").appendTo(infoDiv);
-                    } else if (flavourTextCounts === 0)
-                        $("<p>").text("There is no flavour text. There must be exactly one flavour text, which must have the \"flavour-text\" class.").appendTo(infoDiv);
-                    const sectionTitles = document.getElementsByClassName("page-header-section-title");
-                    for (let ix = 0; ix < sectionTitles.length; ix++) {
-                        if (sectionTitles[ix].textContent != sectionTitles[(ix + 1) % sectionTitles.length].textContent || sectionTitles[ix].textContent === "Module Name") {
-                            $(".page-header-section-title").addClass("developer-mode-warning");
-                            $("<p>").text("The section titles do not match or have not been changed from the default. (Ignore this if intentional)").appendTo(infoDiv);
-                            break;
-                        }
-                    }
-                    localStorage.setItem('ktane-developer-mode', true);
-                }
-                else
-                {
-                    $("body").removeClass("developer-mode");
-                    $(".flavour-text").removeClass("developer-mode-warning");
-                    $(".page-header-section-title").removeClass("developer-mode-warning");
-                    $(".developer-mode-warning").remove();
-                    localStorage.setItem('ktane-developer-mode', false);
-                }
-            }
-            $('#developer-mode-enabled').click(updateDeveloperMode);
 
             // PAGE-LAYOUT OPTIONS
             function updateMultipageView()
@@ -226,11 +191,6 @@ if (!new URLSearchParams(window.location.search).has("merger")) {
                 else if (k == "w" || event.keyCode === 87)
                 {
                     $('#dark-mode-enabled').click();
-                }
-                // Alt-P: Developer mode
-                else if (k == "p" || event.keyCode === 80)
-                {
-                    $('#developer-mode-enabled').click();
                 }
                 // Alt-#: Select highlight color
                 else if (!ctrlSelectsColors && n !== null)
@@ -534,11 +494,8 @@ if (!new URLSearchParams(window.location.search).has("merger")) {
             $(`#page-layout-${pageLayout}`).prop('checked', true);
             let darkModeEnabled = localStorage.getItem('ktane-dark-mode');
             $('#dark-mode-enabled').prop('checked', darkModeEnabled == null ? false : darkModeEnabled == "true");
-            let developerModeEnabled = localStorage.getItem('ktane-developer-mode');
-            $('#developer-mode-enabled').prop('checked', developerModeEnabled == null ? false : developerModeEnabled == "true");
             updateMultipageView();
             updateDarkMode();
-            updateDeveloperMode();
             setColor(1);
         });
     };
