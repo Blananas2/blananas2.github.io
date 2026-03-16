@@ -3,7 +3,7 @@ const rghuc = "https://raw.githubusercontent.com/";
 const ultimateSource = rghuc + "obachs971/UltimateCipher/master/Assets/Scripts/Data.cs";
 const compressionSource = rghuc + "Timwi/KtaneCompressionCiphers/master/Lib/Data.cs";
 const seperatedSource = rghuc + "VFlyer/SeparatedUFCiphers/main/Assets/Scripts/CipherMachineData.cs";
-const buttonSource = rghuc + "QuinnWuest/KtaneBundleOfABunchOfButtons/master/Lib/WordLists.cs";
+const buttonSource = rghuc + "QuinnWuest/KTaNEMod_BundleOfABunchOfButtons/master/Lib/WordLists.cs";
 //pad consts
 const q = "\"*\"";
 const c = ",*,";
@@ -15,7 +15,7 @@ const moduleData = [
     { mod: "Arithmetic Cipher", id: "ArithmeticCipherModule", url: compressionSource, pad: q, cap: true },
     { mod: "The Azure Button", id: "AzureButtonModule", url: buttonSource, pad: q, cap: true },
     { mod: "Basic Morse", id: "BasicMorse", url: rghuc + "Fartlicker777/Basic-Morse/master/Basic%20Morse/Assets/BasicMorse.cs", pad: q, cap: true },
-    { mod: "Bell of Tío", id: "BellOfTioModule", url: rghuc + "QuinnWuest/KtaneBellOfTio/refs/heads/master/Assets/BellOfTioScript.cs", pad: q, cap: true },
+    { mod: "Bell of Tío", id: "BellOfTioModule", url: rghuc + "QuinnWuest/KTaNEMod_BellOfTio/refs/heads/master/Assets/BellOfTioScript.cs", pad: q, cap: true },
     { mod: "Black Cipher", id: "blackCipher", url: ultimateSource, pad: q, cap: true },
     { mod: "The Blue Button", id: "BlueButtonModule", url: buttonSource, pad: q, cap: true },
     { mod: "Blue Cipher", id: "blueCipher", url: ultimateSource, pad: q, cap: true },
@@ -36,11 +36,11 @@ const moduleData = [
     { mod: "Distance Cipher", id: "DistanceCipherModule", url: rghuc + "Eltrick/KtaneDistanceCipher/master/Assets/ModuleScripts/WordList.cs", pad: q, cap: true },
     { mod: "Dreamcipher", id: "ksmDreamcipher", url: rghuc + "KScl/KTaNE-Dreamcipher/master/Assets/DreamcipherAssets/word_list.json", pad: q, cap: false },
     { mod: "☺NA Cipher", id: "enaCipher", url: rghuc + "KiloBites/ktane-ENA-Cipher/master/Assets/Data.cs", pad: q, cap: true },
-    { mod: "Encryption Lingo", id: "EncryptionLingoModule", url: rghuc + "QuinnWuest/KtaneEncryptionLingo/master/Assets/Data.cs", pad: q, cap: true },
+    { mod: "Encryption Lingo", id: "EncryptionLingoModule", url: rghuc + "QuinnWuest/KTaNEMod_EncryptionLingo/master/Assets/Data.cs", pad: q, cap: true },
     { mod: "Faulty Colored Cube", id: "faultyColoredCube", url: rghuc + "llPlayll/KTANE-Colored-Cube-Variants/refs/heads/main/Assets/Modules/Faulty%20Colored/WordList.cs", pad: q, cap: true },
     { mod: "Finite Loop", id: "finiteLoop", url: rghuc + "Blananas2/ktane-finiteLoop/main/Assets/finiteLoopScript.cs", pad: q, cap: true },
     { mod: "Forest Cipher", id: "forestCipher", url: ultimateSource, pad: q, cap: true },
-    { mod: "Forteroudo", id: "ForteroudoModule", url: rghuc + "QuinnWuest/KtaneForteroudo/refs/heads/master/Assets/Data.cs", pad: q, cap: false },
+    { mod: "Forteroudo", id: "ForteroudoModule", url: rghuc + "QuinnWuest/KTaNEMod_Forteroudo/refs/heads/master/Assets/Data.cs", pad: q, cap: false },
     { mod: "Fur Cipher", id: "furCipher", url: rghuc + "MageoMage/FurCipher/main/Assets/Data.cs", pad: q, cap: true },
     { mod: "Gray Cipher", id: "grayCipher", url: ultimateSource, pad: q, cap: true },
     { mod: "Green Cipher", id: "greenCipher", url: ultimateSource, pad: q, cap: true },
@@ -54,7 +54,7 @@ const moduleData = [
     { mod: "Mechanus Cipher", id: "mechanusCipher", url: rghuc + "Ob3vious/KTaNE_PlanarCiphers/master/Assets/Wordlist.cs", pad: q, cap: false },
     { mod: "Metapuzzle", id: "metapuzzle", url: rghuc + "EpicToastTM/ktaneMetapuzzle/main/ktaneMetapuzzle-master/Assets/Misc/MainWordList.cs", pad: q, cap: true },
     { mod: "Modern Cipher", id: "modernCipher", url: rghuc + "TheFe91/ktane-CC/master/Assets/modernCipher.cs", pad: q, cap: true },
-    { mod: "The Navy Button", id: "NavyButtonModule", url: rghuc + "QuinnWuest/KtaneBundleOfABunchOfButtons/master/Lib/NavyButtonData.cs", pad: ";*=", cap: true },
+    { mod: "The Navy Button", id: "NavyButtonModule", url: rghuc + "QuinnWuest/KTaNEMod_BundleOfABunchOfButtons/master/Lib/NavyButtonData.cs", pad: ";*=", cap: true },
     { mod: "Notre-Dame Cipher", id: "notreDameCipher", url: rghuc + "Gameplushy/notreDameCipher/master/notre-Dame%20Cipher/Assets/WordList.cs", pad: q, cap: true },
     { mod: "Obscurdle", id: "ObscurdleModule", url: rghuc + "VFlyer/FlyersOtherModules/master/Assets/Scripts/LingoWordBank.cs", pad: q, cap: true },
     { mod: "Odd One Out", id: "OddOneOutModule", url: rghuc + "Timwi/KtaneOddOneOut/master/Assets/OddOneOutModule.cs", pad: c, cap: true },
@@ -64,7 +64,7 @@ const moduleData = [
     { mod: "Pandemonium Cipher", id: "pandemoniumCipher", url: rghuc + "Ob3vious/KTaNE_PlanarCiphers/master/Assets/Wordlist.cs", pad: q, cap: false },
     { mod: "Password Hexaterminals", id: "hexaterminals", url: rghuc + "Speakingevil/password-hexaterminals/refs/heads/main/Assets/Wordlist.cs", pad: q, cap: true },
     { mod: "Phosphorescence", id: "Phosphorescence", url: rghuc + "Emik03/EmikModules/main/Assets/Modules/Phosphorescence/Data/WordList.txt", pad: "|*|", cap: false },
-    { mod: "Pigfair Cipher", id: "PigfairCipher", url: rghuc + "QuinnWuest/KtanePigfairCipher/main/Assets/PigfairCipher.cs", pad: q, cap: true },
+    { mod: "Pigfair Cipher", id: "PigfairCipher", url: rghuc + "QuinnWuest/KTaNEMod_PigfairCipher/main/Assets/PigfairCipher.cs", pad: q, cap: true },
     { mod: "Pokémon Sprite Cipher", id: "PokemonSpriteCipherModule", url: compressionSource, pad: q, cap: true },
     { mod: "Pluto", id: "pluto", url: rghuc + "Blananas2/ktane-blanets/refs/heads/main/Assets/Planet Files/Pluto/PlutoScript.cs", pad: q, cap: true },
     { mod: "Puzzword", id: "PuzzwordModule", url: rghuc + "Timwi/KtanePuzzword/master/Assets/Scripts/Data.cs", pad: q, cap: true },
@@ -75,6 +75,7 @@ const moduleData = [
     { mod: "The Sapphire Button", id: "SapphireButtonModule", url: buttonSource, pad: q, cap: true },
     { mod: "Scrambled Periodic Words", id: "periodicWordsScrambledRB", url: rghuc + "RazorBlade22/KTaNE-Periodic-Words/refs/heads/main/Assets/Data.cs", pad: q, cap: true },
     { mod: "Shape Cipher", id: "shapeCipher", url: rghuc + "TracksJosh/ktaneShapeCipher-master/main/Assets/Scripts/Data.cs", pad: q, cap: true },
+    { mod: "Shapes", id: "ShapesModule", url: rghuc + "QuinnWuest/KTaNEMod_Shapes/refs/heads/master/Assets/Data.cs", pad: q, cap: true },
     { mod: "Shufflewords", id: "shufflewords", url: rghuc + "Speakingevil/shufflewords/main/Assets/ShufflewordsScript.cs", pad: q, cap: true },
     { mod: "Solitaire Cipher", id: "solitaireCipher", url: rghuc + "obachs971/SolitaireCipher/main/Assets/solitaireCipher.cs", pad: q, cap: true },
     { mod: "Spelling Buzzed", id: "SpellingBuzzed", url: rghuc + "KtaneModules/ktane-spelling-buzzed-alex-chew/refs/heads/master/Assets/SpellingBuzzed/Resources/words.txt", pad: "|*|", cap: true },
@@ -188,6 +189,7 @@ const exceptionData = [
     { mod: "The Sapphire Button", eqlLength: 5 },
     { mod: "Scrambled Periodic Words", splitSpec: ["Elements", [isIn, isNot], [g, r]] },
     { mod: "Shape Cipher", splitSpec: ["new List<string>", [null, butNot, butNot, isIn, butNot, butNot], [null, y, y, g, y, y]] },
+    { mod: "Shapes", eqlLength: 8 },
     { mod: "Shufflewords", eqlLength: 5 },
     { mod: "Solitaire Cipher", eqlLength: 6 },
     { mod: "Spelling Buzzed", surround: "|*|", befAftReplace: ["\n", "|"] },
