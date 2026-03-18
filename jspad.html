@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="icon" href="img/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1">
+    <title>JS Pad</title>
+  </head>
+  <style>
+    @font-face {
+      font-family: 'Fira Mono';
+      src: url(font/FiraMono-Medium.ttf);
+    }
+
+    * { font-family: 'Fira Mono', Courier, monospace; }
+
+    body {
+      background-color: #000000;
+      font-size: 32px;
+    }
+
+    div {
+      justify-content: center; 
+      align-items: center; 
+      display: flex;
+    }
+
+    textarea { 
+      background-color: #000; 
+      color: #fff; 
+      font-family: "Fira Mono";
+      font-size: 35px;
+      width: 500px; 
+      height: 800px;
+      display: block; 
+      margin: auto;
+    }
+  </style>
+  <body>
+    <div>
+      <textarea spellcheck="false" id="jspad" autofocus></textarea>
+    </div>
+  </body>
+  <script>
+    const jspad = document.getElementById('jspad');
+    const commands = [
+      {
+        prefix: "> ",
+        method: 
+          function(inp) {
+            return eval(inp);
+          }
+      }
+    ];
+    
+    jspad.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        let text = jspad.value;
+        let cursor = jspad.selectionStart;
+
+        let previousLine = getPreviousLine(text, cursor);
+        if (previousLine == null) { return; }
+        let result = null;
+        commands.forEach(command => {
+          if (previousLine.startsWith(command.prefix)) {
+            try {
+              result = command.method(previousLine.substring(command.prefix.length));
+            } catch (error) {
+              result = error;
+            }
+          }
+        });
+        if (result == null) { return; }
+
+        jspad.value = text.substring(0, cursor) + result + "\n" + text.substring(cursor+1);
+        jspad.setSelectionRange(cursor, cursor);
+      }
+    });
+
+    function getPreviousLine(t, c) {
+      if (t[c] == "\n" || c == t.length) {
+        let char = c - 1;
+        let line = "";
+        while (t[char] != "\n" && char >= 0) {
+          line = t[char] + line;
+          char--;
+        }
+        return line;
+      } else {
+        return null;
+      }
+    }
+  </script>
+</html>
