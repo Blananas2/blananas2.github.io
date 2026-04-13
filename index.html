@@ -81,8 +81,7 @@
 
       reqJson.forEach(entry => {
         if ((entry.Type === "Regular" || entry.Type === "Needy") && !entry.TranslationOf) {
-          let moduleName = entry.FileName ?? entry.Name;
-          ktane.push(moduleName
+          ktane.push(entry.Name
             .replaceAll('’', '\'')
             .replaceAll('×', 'x')
           );
