@@ -59,13 +59,11 @@ async function fetchRepoData() {
   let request = await fetch("https://ktane.timwi.de/json/raw");
   let reqJson = JSON.parse(await request.text()).KtaneModules;
 
-  for (let j = 0; j < reqJson.length; j++) {
-    if (!(reqJson[j].Type === "Regular" || reqJson[j].Type === "Needy") || reqJson[j].TranslationOf) {
-      continue;
-    } else {
+  reqJson.forEach(entry => {
+    if ((entry.Type === "Regular" || entry.Type === "Needy") && !entry.TranslationOf) {
       ktane.push(reqJson[j].FileName ?? reqJson[j].Name);
     }
-  }
+  });
 
   button.innerText = "Random Module";
   canPress = true;
