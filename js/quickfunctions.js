@@ -125,9 +125,7 @@ function addtimes(times, avg) {
         seconds++;
     }
     decimals = summed;
-    let line = (resultNegative ? "-" : "") + hours + ":" + minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0') + "." + decimals.toString().padStart(precisionLevel, '0');
-    if (decimals == 0) { line = line.replace(/.0+$/, ""); }
-    return line;
+    return `${resultNegative ? "-" : ""}${hours > 0 ? hours + ":" : ""}${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}${precisionLevel > 0 ? "." + decimals.toString().padStart(precisionLevel, '0') : ""}`;
 }
 
 function baseconvert(num, fr, to) {
