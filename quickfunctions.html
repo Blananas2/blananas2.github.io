@@ -91,7 +91,7 @@
     function showGuide() {
       for (f = 0; f < functionData.length; f++) {
         if (functionData[f].name == functionField.value) {
-          guide.innerHTML = functionData[f].desc + "<br><br>Put ?q=" + functionData[f].urlq + " at the end of the URL to pre-select this function." ;
+          guide.innerHTML = functionData[f].desc + `<br><br>Put ?q=${functionData[f].urlq} at the end of the URL to pre-select this function.` ;
           break;
         }
       }
@@ -100,6 +100,10 @@
     inputField.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
         result.innerHTML = runFunction(functionField.value, inputField.value);
+      } else if (e.key === "Tab") {
+        let output = runFunction(functionField.value, inputField.value);
+        result.innerHTML = inputField.value;
+        inputField.value = output;
       }
     });
 
