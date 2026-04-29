@@ -61,7 +61,7 @@ async function fetchRepoData() {
 
   reqJson.forEach(entry => {
     if ((entry.Type === "Regular" || entry.Type === "Needy") && !entry.TranslationOf) {
-      ktane.push(reqJson[j].FileName ?? reqJson[j].Name);
+      ktane.push(entry.FileName ?? entry.Name);
     }
   });
 
