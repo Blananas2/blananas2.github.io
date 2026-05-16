@@ -12,7 +12,7 @@ let functionData = [
     {
         name: "Base conversion",
         urlq: "baseconvert",
-        desc: "Converts input from a specified base to another specified base.<br>Put your bases in square brackets at start or end.<br>Provide two bases separated by a space in base ten, with the 'from' base first and 'to' base second.<br>Currently limited to range [2, 36] inclusive."
+        desc: "Converts input from a specified base to another specified base.<br>Put your bases in square brackets at start or end.<br>Provide two bases separated by a space in base ten, with the 'from' base first and 'to' base second.<br>Optionally provide an alphabet to interpret the numbers with."
     },
     {
         name: "Caesar cipher",
@@ -36,9 +36,25 @@ function runFunction(func, inpString) {
             }
             return addtimes(inpString, func == "Average times");
         case "Base conversion":
-            if (parsed && parsed.input.match(/^-?[0-9a-zA-Z]+$/) && parsed.param.match(/^[0-9]+ [0-9]+$/)) {
-                let indivBases = parsed.param.split(" ");
-                return baseconvert(parsed.input, parseInt(indivBases[0]), parseInt(indivBases[1]));
+            if (parsed && parsed.param.match(/^[0-9]+ [0-9]+( [0-9A-Za-z]+)?$/)) {
+                let params = parsed.param.split(" ")
+                
+                let fromBase = parseInt(params[0]);
+                let toBase = parseInt(params[1]);
+                let alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                if (params.length == 3) {
+                    alphabet = params[2];
+                }
+
+                if (parsed.input.split("").some((e) => alphabet.indexOf(e) < 0)) {
+                    return "Character not present in the alphabet.";
+                }
+
+                if (alphabet.length < Math.max(fromBase, toBase)) {
+                    return "Not enough characters to represent numbers in the specified bases.";
+                }
+
+                return baseconvert(parsed.input, fromBase, toBase, alphabet);
             } else {
                 return "Couldn't parse input."
             }
@@ -128,11 +144,30 @@ function addtimes(times, avg) {
     return `${resultNegative ? "-" : ""}${hours > 0 ? hours + ":" : ""}${hours == 0 ? minutes : minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}${precisionLevel > 0 ? "." + decimals.toString().padStart(precisionLevel, '0') : ""}`;
 }
 
-function baseconvert(num, fr, to) {
-    if (!Number.isInteger(fr) | !Number.isInteger(to)) { return "Invalid: Bases must be integers"; }
-    if (fr < 2 | to < 2 | fr > 36 | to > 36) { return "Invalid: Bases must be in range [2, 36]"; }
-    let middle = parseInt(num, fr); //trying parseFloat only works some of the time; feel free to expirement!
-    return middle.toString(to).toUpperCase();
+function baseconvert(str, fr, to, alphabet) {
+    let middle = 0n;
+
+    let fromBig = BigInt(fr);
+    for(let i = 0; i < str.length; i++) {
+        middle = middle * fromBig + BigInt(alphabet.indexOf(str[i]));
+    }
+
+    let result = "";
+    let toBig = BigInt(to);
+    while (middle > 0) {
+        let rem = middle % toBig;
+        result = alphabet[rem] + result;
+        middle /= toBig;
+    }
+
+    let portionLength = 37;
+    let resultArr = [];
+    let portions = result.length / portionLength + 1; // number of chars in the input box for reference.
+    for (let i = 0; i < portions; i++) {
+        resultArr.push(result.slice(portionLength * i, Math.min(portionLength * (i + 1), result.length)));
+    }
+
+    return resultArr.join("<br>");
 }
 
 function caesar(inp, par) {
