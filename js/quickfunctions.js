@@ -12,7 +12,7 @@ let functionData = [
     {
         name: "Base conversion",
         urlq: "baseconvert",
-        desc: "Converts input from a specified base to another specified base.<br>Put your bases in square brackets at start or end.<br>Provide two bases separated by a space in base ten, with the 'from' base first and 'to' base second.<br>Optionally provide an alphabet to interpret the numbers with."
+        desc: "Converts input from a specified base to another specified base.<br>Put your bases in square brackets at start or end.<br>Provide two bases separated by a space in base ten, with the 'from' base first and 'to' base second.<br>Optionally provide an alphabet to interpret the numbers with.<br>Bases are required to be at least 2."
     },
     {
         name: "Caesar cipher",
@@ -41,13 +41,22 @@ function runFunction(func, inpString) {
                 
                 let fromBase = parseInt(params[0]);
                 let toBase = parseInt(params[1]);
+                if (fromBase < 2 || toBase < 2) {
+                    return "Bases cannot be less than 2."
+                }
+
                 let alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 if (params.length == 3) {
                     alphabet = params[2];
                 }
 
-                if (parsed.input.split("").some((e) => alphabet.indexOf(e) < 0)) {
-                    return "Character not present in the alphabet.";
+                let absInput = parsed.input;
+                if (absInput[0] == "-") {
+                    absInput = absInput.slice(1);
+                }
+
+                if (absInput.split("").some((e) => alphabet.slice(0, fromBase).indexOf(e) < 0)) {
+                    return "Character not present in the alphabet found.";
                 }
 
                 if (alphabet.length < Math.max(fromBase, toBase)) {
@@ -147,6 +156,11 @@ function addtimes(times, avg) {
 function baseconvert(str, fr, to, alphabet) {
     let middle = 0n;
 
+    let isNegative = str[0] == "-";
+    if (isNegative) {
+        str = str.slice(1);
+    }
+
     let fromBig = BigInt(fr);
     for(let i = 0; i < str.length; i++) {
         middle = middle * fromBig + BigInt(alphabet.indexOf(str[i]));
@@ -167,7 +181,7 @@ function baseconvert(str, fr, to, alphabet) {
         resultArr.push(result.slice(portionLength * i, Math.min(portionLength * (i + 1), result.length)));
     }
 
-    return resultArr.join("<br>");
+    return (isNegative ? "-" : "") + resultArr.join("<br>");
 }
 
 function caesar(inp, par) {
