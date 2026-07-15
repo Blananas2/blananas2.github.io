@@ -81,7 +81,7 @@
       let reqJson = JSON.parse(await request.text()).KtaneModules;
 
       reqJson.forEach(entry => {
-        if ((entry.Type === "Regular" || entry.Type === "Needy") && !entry.TranslationOf) {
+        if (["Regular", "Needy"].includes(entry.Type) && !entry.TranslationOf) {
           ktane.push(entry.Name
             .replaceAll('’', '\'')
             .replaceAll('×', 'x')
