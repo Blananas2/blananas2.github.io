@@ -91,7 +91,7 @@
     function showGuide() {
       for (f = 0; f < functionData.length; f++) {
         if (functionData[f].name == functionField.value) {
-          guide.innerHTML = functionData[f].desc + `<br><br>Put ?q=${functionData[f].urlq} at the end of the URL to pre-select this function.` ;
+          guide.innerHTML = functionData[f].desc + `<br><br>Append ?q=${functionData[f].urlq} to the URL to pre-select this function.` ;
           break;
         }
       }

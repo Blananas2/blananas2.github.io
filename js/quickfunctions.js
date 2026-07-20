@@ -2,27 +2,45 @@ let functionData = [
     {
         name: "Add times",
         urlq: "addtimes",
-        desc: "Calculates provided times added together.<br>Separate times with whitespace. Prepend with \"-\" to make a time negative.<br>It will use the number of decimal points of precision after seconds based on the first time."
+        desc: [ "Calculates the sum of provided times.",
+                "Separate times with whitespace. Prepend with \"-\" to make a time negative.",
+                "All units may be greater than 59; 'carrying over' to larger units happens automatically.",
+                "Where applicable, the number of decimal places after seconds is taken from the first time."
+              ].join("<br>")
     },
     {
         name: "Average times",
         urlq: "avgtimes",
-        desc: "Calculates the average of provided times.<br>Separate times with whitespace. Prepend with \"-\" to make a time negative.<br>It will use the number of decimal points of precision after seconds based on the first time."
+        desc: [ "Calculates the average of provided times.",
+                "Separate times with whitespace. Prepend with \"-\" to make a time negative.",
+                "All units may be greater than 59; 'carrying over' to larger units happens automatically.",
+                "Where applicable, the number of decimal places after seconds is taken from the first time."
+              ].join("<br>")
     },
     {
         name: "Base conversion",
         urlq: "baseconvert",
-        desc: "Converts input from a specified base to another specified base.<br>Put your bases in square brackets at start or end.<br>Provide two bases separated by a space in base ten, with the 'from' base first and 'to' base second.<br>Optionally provide an alphabet to interpret the numbers with.<br>Bases are required to be at least 2."
+        desc: [ "Converts input from a specified base to another specified base.",
+                "Put your bases in square brackets at start or end.", 
+                "Provide two bases separated by a space in base ten, with the 'from' base first and 'to' base second.",
+                "Optionally provide an alphabet to interpret the numbers with.",
+                "Bases are required to be at least two."
+              ].join("<br>")
     },
     {
         name: "Caesar cipher",
         urlq: "caesar",
-        desc: "Applies Caesar cipher on the given key.<br>Put your key in square brackets at start or end.<br>Negative keys are supported."
+        desc: [ "Applies Caesar cipher on the given key.",
+                "Put your key in square brackets at start or end.",
+                "Negative keys are supported."
+              ].join("<br>")
     },
     {
         name: "Evaluate",
         urlq: "eval",
-        desc: "Runs the eval() JavaScript function on the input.<br>Errors will be caught and shown."
+        desc: [ "Runs the eval() JavaScript function on the input.",
+                "Errors will be caught and shown."
+              ].join("br")
     }
 ];
 
