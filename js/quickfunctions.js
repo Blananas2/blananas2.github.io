@@ -199,6 +199,10 @@ function baseconvert(str, fr, to, alphabet) {
         resultArr.push(result.slice(portionLength * i, Math.min(portionLength * (i + 1), result.length)));
     }
 
+    while (resultArr[resultArr.length - 1] == '') {
+        resultArr.pop();
+    }
+
     return (isNegative ? "-" : "") + resultArr.join("<br>");
 }
 
