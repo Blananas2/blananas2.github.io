@@ -40,7 +40,7 @@ let functionData = [
         urlq: "eval",
         desc: [ "Runs the eval() JavaScript function on the input.",
                 "Errors will be caught and shown."
-              ].join("br")
+              ].join("<br>")
     }
 ];
 
